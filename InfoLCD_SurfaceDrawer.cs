@@ -1,4 +1,4 @@
-﻿using MahrianeIndustries.LCDInfo;
+﻿using SG.LCDInfo;
 using Sandbox.Definitions;
 using Sandbox.Game.Entities;
 using Sandbox.Game.EntityComponents;
@@ -68,7 +68,7 @@ namespace SG.LCDInfo
             try
             {
                 // Reset value
-                var timeRemaining = MahUtillities.GetPowerTimeLeft(powerProducers);
+                var timeRemaining = SGUtillities.GetPowerTimeLeft(powerProducers);
 
                 DrawHeader(ref frame, ref position, surfaceData, $"{title}", $"Power Left: {(timeRemaining > 0 ? MahDefinitions.TimeFormat((int)timeRemaining) : "-")}");
             }
@@ -111,7 +111,7 @@ namespace SG.LCDInfo
             {
                 if (minAmount <= 0 || !surfaceData.showBars)
                 {
-                    displayName = MahUtillities.GetSubstring(displayName, surfaceData, true);
+                    displayName = SGUtillities.GetSubstring(displayName, surfaceData, true);
                     WriteTextSprite(ref frame, position, surfaceData, displayName, TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                     WriteTextSprite(ref frame, position, surfaceData, MahDefinitions.KiloFormat(currentAmount), TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                     position += surfaceData.newLine;
@@ -142,7 +142,7 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    title = MahUtillities.GetSubstring(title, surfaceData);
+                    title = SGUtillities.GetSubstring(title, surfaceData);
                     WriteTextSprite(ref frame, position, surfaceData, title, TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                     if (surfaceData.showRatio)
                         WriteTextSprite(ref frame, position, surfaceData, $"{((current / total) * 100).ToString("0.00")} %", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
@@ -178,7 +178,7 @@ namespace SG.LCDInfo
                     }
                     else
                     {
-                        title = MahUtillities.GetSubstring(title, surfaceData);
+                        title = SGUtillities.GetSubstring(title, surfaceData);
                         WriteTextSprite(ref frame, position, surfaceData, $"{title}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                         if (surfaceData.showRatio)
                             WriteTextSprite(ref frame, position, surfaceData, $"{currentPercent.ToString("0.00")} %", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
@@ -569,7 +569,7 @@ namespace SG.LCDInfo
 
                 var ratio = current / total;
 
-                WriteTextSprite(ref frame, position, surfaceData, $"{MahUtillities.GetSubstring(title, surfaceData, true)}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
+                WriteTextSprite(ref frame, position, surfaceData, $"{SGUtillities.GetSubstring(title, surfaceData, true)}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
 
                 DrawHalfBar(ref frame, position, surfaceData, TextAlignment.RIGHT, current, total, Unit.Percent, !surfaceData.useColors ? surfaceData.surface.ScriptForegroundColor : ratio > .9 ? Color.GreenYellow : ratio > .66 ? Color.Yellow : ratio > .33 ? Color.Orange : Color.DarkRed);
                 position += surfaceData.newLine;
@@ -701,7 +701,7 @@ namespace SG.LCDInfo
                     }
                     else
                     {
-                        WriteTextSprite(ref frame, position, surfaceData, $"{MahUtillities.GetSubstring(title, surfaceData, true)}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
+                        WriteTextSprite(ref frame, position, surfaceData, $"{SGUtillities.GetSubstring(title, surfaceData, true)}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                         WriteTextSprite(ref frame, position, surfaceData, $"{ratio.ToString("0.0")}%", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                         position += surfaceData.newLine;
                     }
@@ -791,7 +791,7 @@ namespace SG.LCDInfo
 
                 barColor = !surfaceData.useColors ? surfaceData.surface.ScriptForegroundColor : barColor;
 
-                title = MahUtillities.GetSubstring(title, surfaceData, true);
+                title = SGUtillities.GetSubstring(title, surfaceData, true);
 
                 // Print Bar
                 WriteTextSprite(ref frame, position, surfaceData, $"{title}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
@@ -855,7 +855,7 @@ namespace SG.LCDInfo
                         barColor = invertColors ? Color.Red : Color.GreenYellow;
                 }
 
-                title = MahUtillities.GetSubstring(title, surfaceData, true);
+                title = SGUtillities.GetSubstring(title, surfaceData, true);
 
                 // Print Bar
                 WriteTextSprite(ref frame, position, surfaceData, $"{title}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
@@ -899,4 +899,5 @@ namespace SG.LCDInfo
         }
     }
 }
+
 
