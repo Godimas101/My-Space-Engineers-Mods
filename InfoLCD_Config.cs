@@ -19,7 +19,7 @@ using VRageMath;
 
 namespace SG.LCDInfo
 {
-    public static class MahDefinitions
+    public static class SGDefinitions
     {
         public static float pixelPerChar = 6.0f;
 
@@ -132,7 +132,7 @@ namespace SG.LCDInfo
 
         public static CargoItemDefinition GetDefinition(string typeId, string subtypeId)
         {
-            foreach(CargoItemDefinition definition in MahDefinitions.cargoItemDefinitions)
+            foreach(CargoItemDefinition definition in SGDefinitions.cargoItemDefinitions)
             {
                 if (definition.typeId != typeId) continue;
                 if (subtypeId != definition.subtypeId && !subtypeId.Contains(definition.subtypeId)) continue;
@@ -454,7 +454,7 @@ namespace SG.LCDInfo
 
         public static string GetSubstring(string s, SurfaceDrawer.SurfaceData surfaceData, bool cutLeft = false)
         {
-            int maxLength = (int)(surfaceData.titleOffset / MahDefinitions.pixelPerChar * surfaceData.textSize);
+            int maxLength = (int)(surfaceData.titleOffset / SGDefinitions.pixelPerChar * surfaceData.textSize);
             s = s.Length <= maxLength ? s : s.Substring(cutLeft ? 0 : (s.Length - maxLength - 1), maxLength);
 
             return s;
@@ -765,3 +765,4 @@ namespace SG.LCDInfo
         public double MaxVolume => inventories.Sum(x => (double)x.MaxVolume);
     }
 }
+
