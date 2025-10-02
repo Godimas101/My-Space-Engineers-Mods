@@ -183,12 +183,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDContainerSummaryInfo: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDContainerSummaryInfo: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDContainerSummaryInfo: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDContainerSummaryInfo: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -271,7 +271,7 @@ namespace SG.LCDInfo
 
                 var myCubeGrid = myTerminalBlock.CubeGrid as MyCubeGrid;
                 if (myCubeGrid == null) return;
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids, surfaceData.showDocked);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids, surfaceData.showDocked);
 
                 IMyCubeGrid cubeGrid = myCubeGrid as IMyCubeGrid;
                 isStation = cubeGrid.IsStatic;
@@ -302,7 +302,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDContainerSummaryInfo: Caught Exception while updating inventories: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDContainerSummaryInfo: Caught Exception while updating inventories: {e.ToString()}");
             }
         }
 
@@ -370,10 +370,11 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDContainerSummaryInfo: Caught Exception while DrawMainSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDContainerSummaryInfo: Caught Exception while DrawMainSprite: {e.ToString()}");
             }
         }
     }
 }
+
 
 
