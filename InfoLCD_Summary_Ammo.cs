@@ -201,7 +201,7 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Config Syntax error at Line {result}");
                 }
 
                 CreateCargoItemDefinitionList();
@@ -222,7 +222,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -255,7 +255,7 @@ namespace SG.LCDInfo
         {
             itemDefinitions.Clear();
 
-            foreach (CargoItemDefinition definition in MahDefinitions.cargoItemDefinitions)
+            foreach (CargoItemDefinition definition in SGDefinitions.cargoItemDefinitions)
             {
                 if (item_types.Contains(definition.typeId))
                 {
@@ -350,7 +350,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while updating inventories: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while updating inventories: {e.ToString()}");
             }
         }
 
@@ -410,7 +410,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while updating contents: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while updating contents: {e.ToString()}");
             }
         }
 
@@ -475,7 +475,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while DrawMainSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while DrawMainSprite: {e.ToString()}");
             }
         }
 
@@ -516,7 +516,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while DrawAllKnownSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while DrawAllKnownSprite: {e.ToString()}");
             }
         }
 
@@ -556,7 +556,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while DrawAllAvailableSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDAmmoSummaryInfo: Caught Exception while DrawAllAvailableSprite: {e.ToString()}");
             }
         }
 
@@ -589,3 +589,4 @@ namespace SG.LCDInfo
         }
     }
 }
+
