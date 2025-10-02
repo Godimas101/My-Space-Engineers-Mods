@@ -16,7 +16,7 @@ using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
 
-namespace MSG.LCDInfo
+namespace SG.LCDInfo
 {
     [MyTextSurfaceScript("LCDInfoScreenContainerSummary", "$IOS LCD - Container Summary")]
     public class LCDContainerSummaryInfo : MyTextSurfaceScriptBase
@@ -375,4 +375,5 @@ namespace MSG.LCDInfo
         }
     }
 }
+
 
