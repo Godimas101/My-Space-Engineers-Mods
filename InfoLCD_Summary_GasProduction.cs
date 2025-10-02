@@ -209,12 +209,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenGasGenerationSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenGasGenerationSummary: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -311,7 +311,7 @@ namespace SG.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
 
                 oxygenFarms.Clear();
                 generators.Clear();
@@ -349,7 +349,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while updating blocks: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while updating blocks: {e.ToString()}");
             }
         }
 
@@ -360,9 +360,9 @@ namespace SG.LCDInfo
                 currentIceVolume = 0.0f;
                 maximumIceVolume = 0.0f;
 
-                CargoItemDefinition iceDefinition = MahDefinitions.GetDefinition("Ore", "Ice");
+                CargoItemDefinition iceDefinition = SGDefinitions.GetDefinition("Ore", "Ice");
                 if (iceDefinition != null)
-                    currentIceVolume = (float)MahUtillities.GetIceAmountFromBlockList(generators) * iceDefinition.volume;
+                    currentIceVolume = (float)SGUtillities.GetIceAmountFromBlockList(generators) * iceDefinition.volume;
 
                 foreach (var generator in generators)
                 {
@@ -376,7 +376,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while updating ice contents: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while updating ice contents: {e.ToString()}");
             }
         }
 
@@ -417,7 +417,7 @@ namespace SG.LCDInfo
                         else
                         {
                             SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"Ice", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                            SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{(surfaceData.showRatio ? (currentIceVolume / maximumIceVolume * 100) + " %" : (MahDefinitions.LiterFormat(currentIceVolume)))}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
+                            SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{(surfaceData.showRatio ? (currentIceVolume / maximumIceVolume * 100) + " %" : (SGDefinitions.LiterFormat(currentIceVolume)))}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                             position += surfaceData.newLine;
                         }
                         position += surfaceData.newLine;
@@ -434,7 +434,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while DrawGasGenerationMainSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenGasGenerationSummary: Caught Exception while DrawGasGenerationMainSprite: {e.ToString()}");
             }
         }
 
@@ -453,7 +453,7 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{(surfaceData.showRatio ? (currentIceVolume / maximumIceVolume * 100) + " %" : (MahDefinitions.LiterFormat(currentIceVolume)))}", TextAlignment.RIGHT, surfaceData.useColors ? Color.GreenYellow : surfaceData.surface.ScriptForegroundColor);
+                    SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{(surfaceData.showRatio ? (currentIceVolume / maximumIceVolume * 100) + " %" : (SGDefinitions.LiterFormat(currentIceVolume)))}", TextAlignment.RIGHT, surfaceData.useColors ? Color.GreenYellow : surfaceData.surface.ScriptForegroundColor);
                 }
             }
             position += surfaceData.newLine;
@@ -475,11 +475,12 @@ namespace SG.LCDInfo
                     outputOverall += currentOutput;
                 }
 
-                SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{MahDefinitions.LiterFormat(outputOverall)}/min", TextAlignment.RIGHT, surfaceData.useColors ? Color.GreenYellow : surfaceData.surface.ScriptForegroundColor);
+                SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{SGDefinitions.LiterFormat(outputOverall)}/min", TextAlignment.RIGHT, surfaceData.useColors ? Color.GreenYellow : surfaceData.surface.ScriptForegroundColor);
             }
 
             position += surfaceData.newLine;
         }
     }
 }
+
 
