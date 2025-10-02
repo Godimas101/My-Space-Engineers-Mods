@@ -223,12 +223,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -333,7 +333,7 @@ namespace SG.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
 
                 foreach (var myBlock in myFatBlocks)
                 {
@@ -388,7 +388,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while updating blocks: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while updating blocks: {e.ToString()}");
             }
         }
 
@@ -401,8 +401,8 @@ namespace SG.LCDInfo
             }
             if (surfaceData.showSummary)
             {
-                var currentOutput = MahUtillities.GetCurrentOutput(powerProducers);
-                var maxOutput = MahUtillities.GetMaxOutput(powerProducers);
+                var currentOutput = SGUtillities.GetCurrentOutput(powerProducers);
+                var maxOutput = SGUtillities.GetMaxOutput(powerProducers);
 
                 // Power overall
                 SurfaceDrawer.DrawOutputSprite(ref frame, ref position, surfaceData, "PWR", currentOutput, maxOutput, showInactive, Unit.Watt, false);
@@ -445,7 +445,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawBatterySprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawBatterySprite: {e.ToString()}");
             }
         }
 
@@ -465,7 +465,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawSolarSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawSolarSprite: {e.ToString()}");
             }
         }
 
@@ -487,7 +487,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawWindTurbinesSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawWindTurbinesSprite: {e.ToString()}");
             }
         }
 
@@ -504,9 +504,10 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawHydrogenEnginesSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenPowerSummary: Caught Exception while DrawHydrogenEnginesSprite: {e.ToString()}");
             }
         }
     }
 }
+
 
