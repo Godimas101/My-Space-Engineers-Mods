@@ -16,7 +16,7 @@ using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
 
-namespace MahrianeIndustries.LCDInfo
+namespace SG.LCDInfo
 {
     [MyTextSurfaceScript("LCDInfoScreenOresSummary", "$IOS LCD - Ores")]
     public class LCDOresSummaryInfo : MyTextSurfaceScriptBase
@@ -589,3 +589,4 @@ namespace MahrianeIndustries.LCDInfo
         }
     }
 }
+
