@@ -190,12 +190,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenLifeSupportSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenLifeSupportSummary: Config Syntax error at Line {result}");
                 }
             }
             catch(Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -293,7 +293,7 @@ namespace SG.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
 
                 powerProducers.Clear();
                 generators.Clear();
@@ -342,7 +342,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while updating blocks: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while updating blocks: {e.ToString()}");
             }
         }
 
@@ -353,9 +353,9 @@ namespace SG.LCDInfo
                 currentIceVolume = 0.0f;
                 maximumIceVolume = 0.0f;
 
-                CargoItemDefinition iceDefinition = MahDefinitions.GetDefinition("Ore", "Ice");
+                CargoItemDefinition iceDefinition = SGUtillities.GetDefinition("Ore", "Ice");
                 if (iceDefinition != null)
-                    currentIceVolume = (float)MahUtillities.GetIceAmountFromBlockList(generators) * iceDefinition.volume;
+                    currentIceVolume = (float)SGUtillities.GetIceAmountFromBlockList(generators) * iceDefinition.volume;
 
                 foreach (var generator in generators)
                 {
@@ -369,7 +369,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while updating ice contents: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while updating ice contents: {e.ToString()}");
             }
         }
 
@@ -403,9 +403,10 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while DrawLifeSupportSummarySprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenLifeSupportSummary: Caught Exception while DrawLifeSupportSummarySprite: {e.ToString()}");
             }
         }
     }
 }
+
 
