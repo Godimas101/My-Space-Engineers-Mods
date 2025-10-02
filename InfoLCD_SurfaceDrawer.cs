@@ -49,7 +49,7 @@ namespace SG.LCDInfo
                 WriteTextSprite(ref frame, position, surfaceData, $"{title}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
 
                 // Draw right side.
-                WriteTextSprite(ref frame, position, surfaceData, $"[{(rightText == "" ? MahDefinitions.CurrentTimeStamp : rightText)}]", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
+                WriteTextSprite(ref frame, position, surfaceData, $"[{(rightText == "" ? SGDefinitions.CurrentTimeStamp : rightText)}]", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
 
                 // Debugging SurfaceSize
                 // WriteTextSprite(ref frame, position, surfaceData, $"[{surfaceData.surface.SurfaceSize.X.ToString("0.0")}x{surfaceData.surface.SurfaceSize.Y.ToString("0.0")}]", TextAlignment.CENTER, surfaceData.surface.ScriptForegroundColor);
@@ -58,7 +58,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing header sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing header sprite: {e.ToString()}");
             }
 
         }
@@ -70,11 +70,11 @@ namespace SG.LCDInfo
                 // Reset value
                 var timeRemaining = SGUtillities.GetPowerTimeLeft(powerProducers);
 
-                DrawHeader(ref frame, ref position, surfaceData, $"{title}", $"Power Left: {(timeRemaining > 0 ? MahDefinitions.TimeFormat((int)timeRemaining) : "-")}");
+                DrawHeader(ref frame, ref position, surfaceData, $"{title}", $"Power Left: {(timeRemaining > 0 ? SGDefinitions.TimeFormat((int)timeRemaining) : "-")}");
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing PowerTimeHeaderSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing PowerTimeHeaderSprite: {e.ToString()}");
             }
         }
 
@@ -101,7 +101,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing FootNoteSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing FootNoteSprite: {e.ToString()}");
             }
         }
 
@@ -113,7 +113,7 @@ namespace SG.LCDInfo
                 {
                     displayName = SGUtillities.GetSubstring(displayName, surfaceData, true);
                     WriteTextSprite(ref frame, position, surfaceData, displayName, TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                    WriteTextSprite(ref frame, position, surfaceData, MahDefinitions.KiloFormat(currentAmount), TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
+                    WriteTextSprite(ref frame, position, surfaceData, SGDefinitions.KiloFormat(currentAmount), TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                     position += surfaceData.newLine;
                 }
                 else
@@ -123,7 +123,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing item sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing item sprite: {e.ToString()}");
             }
         }
 
@@ -147,13 +147,13 @@ namespace SG.LCDInfo
                     if (surfaceData.showRatio)
                         WriteTextSprite(ref frame, position, surfaceData, $"{((current / total) * 100).ToString("0.00")} %", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                     else
-                        WriteTextSprite(ref frame, position, surfaceData, $"{MahDefinitions.WattFormat(current)}{(unit == Unit.WattHours ? "h" : "")} / {MahDefinitions.WattFormat(total)}{(unit == Unit.WattHours ? "h" : "")}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
+                        WriteTextSprite(ref frame, position, surfaceData, $"{SGDefinitions.WattFormat(current)}{(unit == Unit.WattHours ? "h" : "")} / {SGDefinitions.WattFormat(total)}{(unit == Unit.WattHours ? "h" : "")}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                     position += surfaceData.newLine;
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing output sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing output sprite: {e.ToString()}");
             }
         }
 
@@ -183,7 +183,7 @@ namespace SG.LCDInfo
                         if (surfaceData.showRatio)
                             WriteTextSprite(ref frame, position, surfaceData, $"{currentPercent.ToString("0.00")} %", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                         else
-                            WriteTextSprite(ref frame, position, surfaceData, $"{MahDefinitions.LiterFormat(current)}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
+                            WriteTextSprite(ref frame, position, surfaceData, $"{SGDefinitions.LiterFormat(current)}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                         position += surfaceData.newLine;
                     }
                 }
@@ -195,7 +195,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing gas tanks sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing gas tanks sprite: {e.ToString()}");
             }
         }
 
@@ -230,21 +230,21 @@ namespace SG.LCDInfo
                     else if (blueprintId != "")
                     {
                         // Try to find a definition for the item in production.
-                        CargoItemDefinition itemDefinition = MahDefinitions.GetDefinition("Component", blueprintId);
+                        CargoItemDefinition itemDefinition = SGDefinitions.GetDefinition("Component", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("PhysicalGunObject", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("PhysicalGunObject", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("AmmoMagazine", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("AmmoMagazine", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("OxygenContainerObject", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("OxygenContainerObject", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("GasContainerObject", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("GasContainerObject", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("PhysicalObject", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("PhysicalObject", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("ConsumableItem", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("ConsumableItem", blueprintId);
                         if (itemDefinition == null)
-                            itemDefinition = MahDefinitions.GetDefinition("Package", blueprintId);
+                            itemDefinition = SGDefinitions.GetDefinition("Package", blueprintId);
                         // If we found a definition, use its displayname, otherwise keep the blueprintId as name.
                         if (itemDefinition != null)
                         {
@@ -267,7 +267,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing assembler sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing assembler sprite: {e.ToString()}");
             }
         }
 
@@ -294,7 +294,7 @@ namespace SG.LCDInfo
 
                     var subtypeId = queuedItems.Count > 0 ? queuedItems[0].Type.SubtypeId : "";
                     var amount = queuedItems.Count > 0 ? queuedItems[0].Amount.ToIntSafe() : 0;
-                    var queue = subtypeId == "" ? "-" : $"{MahDefinitions.KiloFormat(amount)} {subtypeId}";
+                    var queue = subtypeId == "" ? "-" : $"{SGDefinitions.KiloFormat(amount)} {subtypeId}";
                     var outputBlocked = refinery.OutputInventory.CurrentVolume >= refinery.OutputInventory.MaxVolume * .9f;
                     var state = $"{(!refinery.IsWorking ? "    Off" : outputBlocked ? "   Full" : queuedItems.Count > 0 ? "  Work" : "   Halt")}";
 
@@ -309,7 +309,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing refinery sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing refinery sprite: {e.ToString()}");
             }
         }
 
@@ -324,7 +324,7 @@ namespace SG.LCDInfo
                 position += surfaceData.newLine;
 
                 float currentVolume = 0.0f;
-                CargoItemDefinition iceDefinition = MahDefinitions.GetDefinition("Ore", "Ice");
+                CargoItemDefinition iceDefinition = SGDefinitions.GetDefinition("Ore", "Ice");
                 List<VRage.Game.ModAPI.Ingame.MyInventoryItem> inventoryItems = new List<VRage.Game.ModAPI.Ingame.MyInventoryItem>();
 
                 foreach (var generator in generators)
@@ -368,7 +368,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing gas generator sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing gas generator sprite: {e.ToString()}");
             }
         }
 
@@ -400,7 +400,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing oxygen farms sprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing oxygen farms sprite: {e.ToString()}");
             }
         }
 
@@ -535,7 +535,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while DrawIntegritySummarySprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while DrawIntegritySummarySprite: {e.ToString()}");
             }
         }
 
@@ -576,7 +576,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while DrawSystemSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while DrawSystemSprite: {e.ToString()}");
             }
         }
 
@@ -609,7 +609,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while DrawResourceSummarySprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while DrawResourceSummarySprite: {e.ToString()}");
             }
         }
 
@@ -671,14 +671,14 @@ namespace SG.LCDInfo
                 position += surfaceData.newLine;
 
                 // JumpDrive Range Summary
-                WriteTextSprite(ref frame, position, surfaceData, $"   {MahDefinitions.KiloFormat(currentDistance)}m", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
+                WriteTextSprite(ref frame, position, surfaceData, $"   {SGDefinitions.KiloFormat(currentDistance)}m", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                 WriteTextSprite(ref frame, position, surfaceData, $"[                  ] Target distance", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                 DrawHalfBar(ref frame, position, surfaceData, TextAlignment.RIGHT, currentDistance, maximumDistance, Unit.Percent, surfaceData.surface.ScriptForegroundColor);
                 position += surfaceData.newLine;
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while DrawJumpDriveSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while DrawJumpDriveSprite: {e.ToString()}");
             }
         }
         
@@ -709,7 +709,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while DrawCargoItemBar: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while DrawCargoItemBar: {e.ToString()}");
             }
         }
 
@@ -720,7 +720,7 @@ namespace SG.LCDInfo
                 // Avoid division by 0
                 total = total <= 0 ? 1 : total;
 
-                var pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                var pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 var barLength = (int)((alignment == TextAlignment.RIGHT ? (surfaceData.ratioOffset / pixelPerChar) : (surfaceData.titleOffset / pixelPerChar)) * .8f);
                 var ratio = current / total;
                 var currentValue = (int)(ratio * barLength);
@@ -741,7 +741,7 @@ namespace SG.LCDInfo
                     }
                 }
 
-                string unitString = unit == Unit.None ? "" : surfaceData.showRatio || unit == Unit.Percent ? $"{((ratio * 100).ToString("0.0"))}%" : unit == Unit.Liters ? $"{MahDefinitions.LiterFormat(current)}" : unit == Unit.Watt ? $"{MahDefinitions.WattFormat(current)}" : $"{MahDefinitions.KiloFormat(current)}";
+                string unitString = unit == Unit.None ? "" : surfaceData.showRatio || unit == Unit.Percent ? $"{((ratio * 100).ToString("0.0"))}%" : unit == Unit.Liters ? $"{SGDefinitions.LiterFormat(current)}" : unit == Unit.Watt ? $"{SGDefinitions.WattFormat(current)}" : $"{SGDefinitions.KiloFormat(current)}";
 
                 if (alignment == TextAlignment.RIGHT)
                 {
@@ -755,7 +755,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing half bar: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing half bar: {e.ToString()}");
             }
         }
 
@@ -769,7 +769,7 @@ namespace SG.LCDInfo
                 Vector2 titleOffset = new Vector2((title != "" ? surfaceData.titleOffset : 0) * surfaceData.textSize, 0);
                 Vector2 ratioOffset = new Vector2(surfaceData.ratioOffset * surfaceData.textSize, 0);
                 double ratio = current / total;
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 int barLength = (int)Math.Floor((surfaceData.surface.SurfaceSize.X - (2 * surfaceData.viewPortOffsetX) - titleOffset.X - ratioOffset.X - (4 * pixelPerChar)) / pixelPerChar);
                 int currentValue = (int)(barLength * ratio);
 
@@ -799,7 +799,7 @@ namespace SG.LCDInfo
                 WriteTextSprite(ref frame, position + titleOffset, surfaceData, backgroundBar + "]", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                 WriteTextSprite(ref frame, position + titleOffset, surfaceData, bar, TextAlignment.LEFT, barColor);
 
-                string unitString = unit == Unit.None ? "" : surfaceData.showRatio || unit == Unit.Percent ? $"{(ratio * 100).ToString("#0.0")} %" : unit == Unit.Liters ? $"{MahDefinitions.LiterFormat(current)}" : unit == Unit.Watt ? $"{MahDefinitions.WattFormat(current)}" : unit == Unit.WattHours ? $"{MahDefinitions.WattFormat(current)}h" : unit == Unit.Kilograms ? $"{MahDefinitions.KiloFormat(current)}g" : $"{MahDefinitions.KiloFormat(current)}";
+                string unitString = unit == Unit.None ? "" : surfaceData.showRatio || unit == Unit.Percent ? $"{(ratio * 100).ToString("#0.0")} %" : unit == Unit.Liters ? $"{SGDefinitions.LiterFormat(current)}" : unit == Unit.Watt ? $"{SGDefinitions.WattFormat(current)}" : unit == Unit.WattHours ? $"{SGDefinitions.WattFormat(current)}h" : unit == Unit.Kilograms ? $"{SGDefinitions.KiloFormat(current)}g" : $"{SGDefinitions.KiloFormat(current)}";
 
                 WriteTextSprite(ref frame, position, surfaceData, $"{unitString}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
 
@@ -807,7 +807,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing bar: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing bar: {e.ToString()}");
             }
         }
 
@@ -821,7 +821,7 @@ namespace SG.LCDInfo
                 Vector2 titleOffset = new Vector2((title != "" ? surfaceData.titleOffset : 0) * surfaceData.textSize, 0);
                 Vector2 ratioOffset = new Vector2(surfaceData.ratioOffset * surfaceData.textSize, 0);
                 double ratio = current / total;
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 int barLength = (int)Math.Floor((surfaceData.surface.SurfaceSize.X - (2 * surfaceData.viewPortOffsetX) - titleOffset.X - ratioOffset.X - (4 * pixelPerChar)) / pixelPerChar);
                 int currentValue = (int)(barLength * ratio);
 
@@ -863,7 +863,7 @@ namespace SG.LCDInfo
                 WriteTextSprite(ref frame, position + titleOffset, surfaceData, backgroundBar + "]", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                 WriteTextSprite(ref frame, position + titleOffset, surfaceData, bar, TextAlignment.LEFT, barColor);
 
-                string unitString = unit == Unit.None ? "" : surfaceData.showRatio || unit == Unit.Percent ? $"{(ratio * 100).ToString("#0.0")} %" : unit == Unit.Liters ? $"{MahDefinitions.LiterFormat(current)}" : unit == Unit.Watt ? $"{MahDefinitions.WattFormat(current)}" : unit == Unit.WattHours ? $"{MahDefinitions.WattFormat(current)}h" : unit == Unit.Kilograms ? $"{MahDefinitions.KiloFormat(current)}g" : $"{MahDefinitions.KiloFormat(current)}";
+                string unitString = unit == Unit.None ? "" : surfaceData.showRatio || unit == Unit.Percent ? $"{(ratio * 100).ToString("#0.0")} %" : unit == Unit.Liters ? $"{SGDefinitions.LiterFormat(current)}" : unit == Unit.Watt ? $"{SGDefinitions.WattFormat(current)}" : unit == Unit.WattHours ? $"{SGDefinitions.WattFormat(current)}h" : unit == Unit.Kilograms ? $"{SGDefinitions.KiloFormat(current)}g" : $"{SGDefinitions.KiloFormat(current)}";
 
                 WriteTextSprite(ref frame, position, surfaceData, $"{unitString}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
 
@@ -871,7 +871,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.SurfaceDrawer: Caught Exception while drawing bar: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing bar: {e.ToString()}");
             }
         }
 
@@ -899,6 +899,7 @@ namespace SG.LCDInfo
         }
     }
 }
+
 
 
 
