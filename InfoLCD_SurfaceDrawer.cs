@@ -18,7 +18,7 @@ using VRage.Utils;
 using VRageMath;
 using static MahrianeIndustries.LCDInfo.SurfaceDrawer;
 
-namespace MahrianeIndustries.LCDInfo
+namespace SG.LCDInfo
 {
     public static class SurfaceDrawer
     {
@@ -899,3 +899,4 @@ namespace MahrianeIndustries.LCDInfo
         }
     }
 }
+
