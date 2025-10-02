@@ -16,7 +16,7 @@ using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
 
-namespace MahrianeIndustries.LCDInfo
+namespace SG.LCDInfo
 {
     [MyTextSurfaceScript("LCDInfoScreenGridInfoSummary", "$IOS LCD - Grid & Flight Info")]
     public class LCDGridInfoSummary : MyTextSurfaceScriptBase
@@ -367,3 +367,4 @@ namespace MahrianeIndustries.LCDInfo
         }
     }
 }
+
