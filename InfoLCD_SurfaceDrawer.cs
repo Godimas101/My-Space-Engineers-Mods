@@ -16,7 +16,7 @@ using VRage.Game.ModAPI;
 using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
-using static MahrianeIndustries.LCDInfo.SurfaceDrawer;
+using static SG.LCDInfo.SurfaceDrawer;
 
 namespace SG.LCDInfo
 {
@@ -899,5 +899,6 @@ namespace SG.LCDInfo
         }
     }
 }
+
 
 
