@@ -16,7 +16,7 @@ using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
 
-namespace MahrianeIndustries.LCDInfo
+namespace SG.LCDInfo
 {
     [MyTextSurfaceScript("LCDInfoScreenDamageMonitorSummary", "$IOS LCD - Damage Control")]
     public class LCDDamageMonitorSummary : MyTextSurfaceScriptBase
@@ -347,4 +347,5 @@ namespace MahrianeIndustries.LCDInfo
             }
         }
     }
+
 }
