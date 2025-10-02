@@ -191,12 +191,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenProductionSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenProductionSummary: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -289,7 +289,7 @@ namespace SG.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids, surfaceData.showDocked);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids, surfaceData.showDocked);
 
                 foreach (var myBlock in myFatBlocks)
                 {
@@ -315,7 +315,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while updating blocks: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while updating blocks: {e.ToString()}");
             }
         }
 
@@ -343,7 +343,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while DrawProductionMainSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while DrawProductionMainSprite: {e.ToString()}");
             }
         }
 
@@ -407,9 +407,10 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while DrawCompactProductionSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenProductionSummary: Caught Exception while DrawCompactProductionSprite: {e.ToString()}");
             }
         }
     }
 }
+
 
