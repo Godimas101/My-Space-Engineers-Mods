@@ -16,7 +16,7 @@ using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
 
-namespace MahrianeIndustries.LCDInfo
+namespace SG.LCDInfo
 {
     [MyTextSurfaceScript("LCDInfoScreenDoorMonitorSummary", "$IOS LCD - Door Monitor")]
     public class LCDDoorMonitorSummary : MyTextSurfaceScriptBase
@@ -156,12 +156,12 @@ namespace MahrianeIndustries.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDoorMonitorSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDoorMonitorSummary: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDoorMonitorSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDoorMonitorSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -265,7 +265,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDoorMonitorSummary: Caught Exception while updating blocks: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDoorMonitorSummary: Caught Exception while updating blocks: {e.ToString()}");
             }
         }
 
@@ -291,8 +291,9 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDoorMonitorSummary: Caught Exception while DrawDoorMonitorSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDoorMonitorSummary: Caught Exception while DrawDoorMonitorSprite: {e.ToString()}");
             }
         }
     }
+
 }
