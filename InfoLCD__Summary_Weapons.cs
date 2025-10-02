@@ -16,7 +16,7 @@ using VRage.Game.ModAPI.Ingame.Utilities;
 using VRage.Utils;
 using VRageMath;
 
-namespace MahrianeIndustries.LCDInfo
+namespace SG.LCDInfo
 {
     [MyTextSurfaceScript("LCDInfoScreenWeaponsSummary", "$IOS LCD - Weapons")]
     public class LCDWeaponsSummaryInfo : MyTextSurfaceScriptBase
@@ -187,14 +187,14 @@ namespace MahrianeIndustries.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Config Syntax error at Line {result}");
                 }
                 
                 CreateCargoItemDefinitionList();
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -318,7 +318,7 @@ namespace MahrianeIndustries.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
 
                 foreach (var myBlock in myFatBlocks)
                 {
@@ -371,7 +371,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while updating blocks and inventories: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while updating blocks and inventories: {e.ToString()}");
             }
         }
 
@@ -430,7 +430,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while updating contents: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while updating contents: {e.ToString()}");
             }
         }
 
@@ -466,7 +466,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawWeaponsMainSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawWeaponsMainSprite: {e.ToString()}");
             }
         }
 
@@ -490,7 +490,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawInteriorTurretsDetailedSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawInteriorTurretsDetailedSprite: {e.ToString()}");
             }
         }
 
@@ -514,7 +514,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawInteriorTurretsCompactSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawInteriorTurretsCompactSprite: {e.ToString()}");
             }
         }
 
@@ -538,7 +538,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawTurretsDetailedSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawTurretsDetailedSprite: {e.ToString()}");
             }
         }
 
@@ -562,7 +562,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawTurretsCompactSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawTurretsCompactSprite: {e.ToString()}");
             }
         }
 
@@ -684,7 +684,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCustomTurretsControllerDetailedSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCustomTurretsControllerDetailedSprite: {e.ToString()}");
             }
         }
 
@@ -794,7 +794,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCustomTurretControllerCompactSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCustomTurretControllerCompactSprite: {e.ToString()}");
             }
         }
 
@@ -865,7 +865,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawDetailedTurretSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawDetailedTurretSprite: {e.ToString()}");
             }
         }
 
@@ -893,7 +893,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCompactTurretSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCompactTurretSprite: {e.ToString()}");
             }
         }
 
@@ -987,7 +987,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCannonsDetailedSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCannonsDetailedSprite: {e.ToString()}");
             }
         }
         
@@ -1052,7 +1052,7 @@ namespace MahrianeIndustries.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCannonsCompactSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenWeaponsSummary: Caught Exception while DrawCannonsCompactSprite: {e.ToString()}");
             }
         }
 
@@ -1083,3 +1083,4 @@ namespace MahrianeIndustries.LCDInfo
         }
     }
 }
+
