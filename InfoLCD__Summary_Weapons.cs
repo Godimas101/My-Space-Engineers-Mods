@@ -219,7 +219,7 @@ namespace SG.LCDInfo
         {
             itemDefinitions.Clear();
 
-            foreach (CargoItemDefinition definition in MahDefinitions.cargoItemDefinitions)
+            foreach (CargoItemDefinition definition in SGDefinitions.cargoItemDefinitions)
             {
                 if (item_types.Contains(definition.typeId))
                 {
@@ -284,7 +284,7 @@ namespace SG.LCDInfo
             UpdateBlocksAndInventories();
             UpdateContents();
 
-            pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+            pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
             var myFrame = mySurface.DrawFrame();
             var myViewport = new RectangleF((mySurface.TextureSize - mySurface.SurfaceSize) / 2f, mySurface.SurfaceSize);
             var myPosition = new Vector2(surfaceData.viewPortOffsetX, surfaceData.viewPortOffsetY) + myViewport.Position;
@@ -572,7 +572,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 Vector2 stateOffset = new Vector2(pixelPerChar * 19, 0);
                 var maxNameLength = (int)(mySurface.SurfaceSize.X > 300 ? 35 : 20);
 
@@ -694,7 +694,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 Vector2 stateOffset = new Vector2(pixelPerChar * 19, 0);
                 var maxNameLength = (int)(mySurface.SurfaceSize.X > 300 ? 35 : 20);
 
@@ -804,7 +804,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 var maxNameLength = (int)(mySurface.SurfaceSize.X > 300 ? 35 : 20);
                 var turrentName = turret.CustomName.Length > maxNameLength ? turret.CustomName.Substring(0, maxNameLength) : turret.CustomName;
                 var currentVolume = (float)turret.GetInventory(0).CurrentVolume;
@@ -826,7 +826,7 @@ namespace SG.LCDInfo
                         if (ammoType == "No Ammo")
                         {
                             ammoType = item.Type.SubtypeId;
-                            CargoItemDefinition itemDefinition = MahDefinitions.GetDefinition("AmmoMagazine", ammoType);
+                            CargoItemDefinition itemDefinition = SGDefinitions.GetDefinition("AmmoMagazine", ammoType);
 
                             if (itemDefinition != null)
                             {
@@ -856,7 +856,7 @@ namespace SG.LCDInfo
                 SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"[                ] {turrentName}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                 SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{targetSet}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                 position += surfaceData.newLine;
-                SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{MahDefinitions.KiloFormat(ammoCount)}x <{ammoType}> ", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
+                SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{SGDefinitions.KiloFormat(ammoCount)}x <{ammoType}> ", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                 SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"{targetting}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
                 position += surfaceData.newLine;
                 SurfaceDrawer.DrawHalfBar(ref frame, position, surfaceData, TextAlignment.LEFT, currentVolume, maximumVolume, Unit.Percent, !surfaceData.useColors ? surfaceData.surface.ScriptForegroundColor : Color.Orange);
@@ -875,7 +875,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 var maxNameLength = (int)(mySurface.SurfaceSize.X > 300 ? 35 : 20);
                 var turrentName = turret.CustomName.Length > maxNameLength ? turret.CustomName.Substring(0, maxNameLength) : turret.CustomName;
                 var currentVolume = (float)turret.GetInventory(0).CurrentVolume;
@@ -903,7 +903,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 Vector2 stateOffset = new Vector2(pixelPerChar * 19, 0);
                 var maxNameLength = (int)(mySurface.SurfaceSize.X > 300 ? 35 : 20);
                 SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"Fixed Weapons [{cannons.Count}]", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
@@ -957,7 +957,7 @@ namespace SG.LCDInfo
                             if (ammoType == "No Ammo")
                             {
                                 ammoType = item.Type.SubtypeId;
-                                CargoItemDefinition itemDefinition = MahDefinitions.GetDefinition("AmmoMagazine", ammoType);
+                                CargoItemDefinition itemDefinition = SGDefinitions.GetDefinition("AmmoMagazine", ammoType);
 
                                 if (itemDefinition != null)
                                 {
@@ -976,7 +976,7 @@ namespace SG.LCDInfo
                     SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"  {state}", TextAlignment.LEFT, !surfaceData.useColors ? surfaceData.surface.ScriptForegroundColor : state.Contains("Off") || state.Contains("NoAmmo") ? Color.Orange : isRecharging ? Color.Yellow : state.Contains("Firing") ? Color.Red : Color.GreenYellow);
                     SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"[                ] {cannonName}", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                     position += surfaceData.newLine;
-                    SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"[{MahDefinitions.KiloFormat(ammoCount)}] <{ammoType}> ", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
+                    SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"[{SGDefinitions.KiloFormat(ammoCount)}] <{ammoType}> ", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
                     position += surfaceData.newLine;
                     SurfaceDrawer.DrawHalfBar(ref frame, position, surfaceData, TextAlignment.LEFT, currentVolume, maximumVolume, Unit.Percent, !surfaceData.useColors ? surfaceData.surface.ScriptForegroundColor : Color.Orange);
                     SurfaceDrawer.WriteTextSprite(ref frame, position, surfaceData, $"", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
@@ -997,7 +997,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 Vector2 stateOffset = new Vector2(pixelPerChar * 19, 0);
                 var maxNameLength = (int)(mySurface.SurfaceSize.X > 300 ? 35 : 20);
 
@@ -1083,4 +1083,5 @@ namespace SG.LCDInfo
         }
     }
 }
+
 
