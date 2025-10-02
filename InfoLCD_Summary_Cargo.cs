@@ -215,7 +215,7 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDCargoSummaryInfo: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDCargoSummaryInfo: Config Syntax error at Line {result}");
                 }
 
                 CreateCargoItemDefinitionList();                    
@@ -236,7 +236,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDCargoSummaryInfo: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDCargoSummaryInfo: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -269,7 +269,7 @@ namespace SG.LCDInfo
         {
             itemDefinitions.Clear();
 
-            foreach (CargoItemDefinition definition in MahDefinitions.cargoItemDefinitions)
+            foreach (CargoItemDefinition definition in SGDefinitions.cargoItemDefinitions)
                 itemDefinitions.Add(new CargoItemDefinition { subtypeId = definition.subtypeId, displayName = definition.displayName, volume = definition.volume, minAmount = 0 });
 
             foreach (CargoItemDefinition definition in unknownItemDefinitions)
@@ -351,11 +351,11 @@ namespace SG.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                inventories = MahUtillities.GetInventories(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids, surfaceData.showDocked);
+                inventories = SGUtillities.GetInventories(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids, surfaceData.showDocked);
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDCargoSummaryInfo: Caught Exception while updating inventories: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDCargoSummaryInfo: Caught Exception while updating inventories: {e.ToString()}");
             }
         }
 
@@ -401,7 +401,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDCargoSummaryInfo: Caught Exception while updating contents: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDCargoSummaryInfo: Caught Exception while updating contents: {e.ToString()}");
             }
         }
 
@@ -462,7 +462,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDCargoSummaryInfo: Caught Exception while DrawMainSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDCargoSummaryInfo: Caught Exception while DrawMainSprite: {e.ToString()}");
             }
         }
 
@@ -514,7 +514,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDCargoSummaryInfo: Caught Exception while AddCargoItemDefinition: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDCargoSummaryInfo: Caught Exception while AddCargoItemDefinition: {e.ToString()}");
             }
         }
         
@@ -534,4 +534,5 @@ namespace SG.LCDInfo
         }
     }
 }
+
 
