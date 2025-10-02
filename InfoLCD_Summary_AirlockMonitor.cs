@@ -156,12 +156,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenAirlockMonitorSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenAirlockMonitorSummary: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenAirlockMonitorSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenAirlockMonitorSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -319,4 +319,5 @@ namespace SG.LCDInfo
             }
         }
     }
+
 }
