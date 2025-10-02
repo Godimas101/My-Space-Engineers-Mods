@@ -175,12 +175,12 @@ namespace SG.LCDInfo
                 }
                 else
                 {
-                    MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDamageMonitorSummary: Config Syntax error at Line {result}");
+                    MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDamageMonitorSummary: Config Syntax error at Line {result}");
                 }
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDamageMonitorSummary: Caught Exception while loading config: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDamageMonitorSummary: Caught Exception while loading config: {e.ToString()}");
             }
         }
 
@@ -271,7 +271,7 @@ namespace SG.LCDInfo
                 isStation = cubeGrid.IsStatic;
                 gridId = cubeGrid.CustomName;
 
-                var myFatBlocks = MahUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
+                var myFatBlocks = SGUtillities.GetBlocks(myCubeGrid, searchId, excludeIds, ref gridMass, surfaceData.showSubgrids);
 
                 foreach (var myBlock in myFatBlocks)
                 {
@@ -286,7 +286,7 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDamageMonitorSummary: Caught Exception while updating blocks: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDamageMonitorSummary: Caught Exception while updating blocks: {e.ToString()}");
             }
         }
 
@@ -296,7 +296,7 @@ namespace SG.LCDInfo
 
             try
             {
-                float pixelPerChar = MahDefinitions.pixelPerChar * surfaceData.textSize;
+                float pixelPerChar = SGDefinitions.pixelPerChar * surfaceData.textSize;
                 Vector2 stateOffset = new Vector2(pixelPerChar * 15, 0);
 
                 if (damagedBlocks <= 0)
@@ -343,9 +343,10 @@ namespace SG.LCDInfo
             }
             catch (Exception e)
             {
-                MyLog.Default.WriteLine($"MahrianeIndustries.LCDInfo.LCDInfoScreenDamageMonitorSummary: Caught Exception while DrawDamageMonitorSprite: {e.ToString()}");
+                MyLog.Default.WriteLine($"SG.LCDInfo.LCDInfoScreenDamageMonitorSummary: Caught Exception while DrawDamageMonitorSprite: {e.ToString()}");
             }
         }
     }
 
 }
+
