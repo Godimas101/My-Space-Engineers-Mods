@@ -1,1 +1,6 @@
-[REFERENCE FILES]/
+## Local reference data (literal brackets escaped)
+\[REFERENCE FILES]/
+
+## Space Engineers mod metadata (never commit)
+modinfo.sbmi
+

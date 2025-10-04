@@ -650,7 +650,8 @@
 			<BuildTimeSeconds>10</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>86400</ForceMagnitude> <!-- 3x from 14400 -->
+			<!-- Original ForceMagnitude 86400 (old N/kg ratio 272.555205) -->
+			<ForceMagnitude>75451</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 238.016529) -->
 			<MaxPowerConsumption>0.200</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -746,7 +747,8 @@
 			<BuildTimeSeconds>20</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>518400</ForceMagnitude> <!-- 3x from 172800 -->
+			<!-- Original ForceMagnitude 518400 (old N/kg ratio 341.7270929) -->
+			<ForceMagnitude>1090725</ForceMagnitude> <!-- Recalc: 2x base N/kg target (Advanced reference ratio 719.001387) -->
 			<MaxPowerConsumption>2.4</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -844,7 +846,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>40</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>1036800</ForceMagnitude> <!-- 3x from 345600 -->
+			<!-- Original ForceMagnitude 1036800 (old N/kg ratio 116.3636364) -->
+			<ForceMagnitude>1406071</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 157.80821918) -->
 			<MaxPowerConsumption>3.36</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -942,7 +945,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>90</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>12960000</ForceMagnitude> <!-- 3x from 4320000 -->
+			<!-- Original ForceMagnitude 12960000 (old N/kg ratio 149.7400347) -->
+			<ForceMagnitude>17310000</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 200) -->
 			<MaxPowerConsumption>33.6</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1037,7 +1041,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>90</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>19440000</ForceMagnitude> <!-- 3x from 6480000 -->
+			<!-- Original ForceMagnitude 19440000 (old N/kg ratio 294.1443486) -->
+			<ForceMagnitude>25978963</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 393.0846224) -->
 			<MaxPowerConsumption>16.8</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1143,7 +1148,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>40</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>1944000</ForceMagnitude> <!-- 3x from 648000 -->
+			<!-- Original ForceMagnitude 1944000 (old N/kg ratio 238.5276074) -->
+			<ForceMagnitude>2640600</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 324) -->
 			<MaxPowerConsumption>2.4</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1247,7 +1253,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>20</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>1728000</ForceMagnitude> <!-- 3x from 576000 -->
+			<!-- Original ForceMagnitude 1728000 (old N/kg ratio 289.3987607) -->
+			<ForceMagnitude>2333308</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 390.7734056) -->
 			<MaxPowerConsumption>2.4</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1353,7 +1360,8 @@
 			<BuildTimeSeconds>10</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>288000</ForceMagnitude> <!-- 3x from 96000 -->
+			<!-- Original ForceMagnitude 288000 (old N/kg ratio 195.5193483) -->
+			<ForceMagnitude>404601</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 274.6781116) -->
 			<MaxPowerConsumption>0.600</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1819,7 +1827,8 @@
 			<MaxPowerConsumption>7.5</MaxPowerConsumption>
 			<MinPowerConsumption>0.000000001</MinPowerConsumption>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>21600000</ForceMagnitude> <!-- 3x from 7200000 -->
+			<!-- Original ForceMagnitude 21600000 (old N/kg ratio 1539.55809) -->
+			<ForceMagnitude>29111239</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 2074.927954) -->
 			<SlowdownFactor>1</SlowdownFactor>
 			<FlameDamageLengthScale>0.6</FlameDamageLengthScale>
 			<FlameLengthScale>1.15</FlameLengthScale>
@@ -1911,7 +1920,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>40</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>3240000</ForceMagnitude> <!-- 3x from 1080000 -->
+			<!-- Original ForceMagnitude 3240000 (old N/kg ratio 1083.61204) -->
+			<ForceMagnitude>4548169</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 1521.1267606) -->
 			<SlowdownFactor>1</SlowdownFactor>
 			<FuelConverter>
 				<FuelId>
@@ -2025,7 +2035,8 @@
 			<MaxPowerConsumption>0.6</MaxPowerConsumption>
 			<MinPowerConsumption>0.000000001</MinPowerConsumption>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>1440000</ForceMagnitude> <!-- 3x from 480000 -->
+			<!-- Original ForceMagnitude 1440000 (old N/kg ratio 571.6554188) -->
+			<ForceMagnitude>1978920</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 785.5973814) -->
 			<SlowdownFactor>1</SlowdownFactor>
 			<FlameDamageLengthScale>0.6</FlameDamageLengthScale>
 			<FlameLengthScale>1.15</FlameLengthScale>
@@ -2104,7 +2115,7 @@
 					<MinAllowed>0</MinAllowed>
 				</StaticMode>
 				<DynamicMode>
-					<PlacementMode>Volumetric</PlacementMode>
+					<PlacementMode>Volum  etric</PlacementMode>
 					<MaxAllowed>0.2</MaxAllowed>
 					<MinAllowed>0</MinAllowed>
 				</DynamicMode>
@@ -2115,7 +2126,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>10</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>295200</ForceMagnitude> <!-- 3x from 98400 -->
+			<!-- Original ForceMagnitude 295200 (old N/kg ratio 397.30821) -->
+			<ForceMagnitude>437792</ForceMagnitude> <!-- Recalc: 2x base N/kg target (ratio 589.2215568) -->
 			<FuelConverter>
 				<FuelId>
 					<TypeId>GasProperties</TypeId>
