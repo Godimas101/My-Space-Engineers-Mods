@@ -20,9 +20,13 @@ Usage:
 #>
 
 param(
-    [string] $ModCubeBlocksPath = (Join-Path (Join-Path $PSScriptRoot 'Not Just For Looks') 'Data\CubeBlocks'),
-    [string] $OutputCsv = (Join-Path $PSScriptRoot 'thruster_mass_report.csv'),
-    [string] $ComponentsFilePath
+    [string] $RepoRoot = (Split-Path $PSScriptRoot -Parent),
+    [string] $ModCubeBlocksPath = (Join-Path (Join-Path $RepoRoot 'Not Just For Looks') 'Data\CubeBlocks'),
+    [string] $OutputCsv = (Join-Path $RepoRoot 'thruster_mass_report.csv'),
+    [string] $ComponentsFilePath,
+    [switch] $IncludePrototech,
+    [switch] $IncludeBase,
+    [string] $BaseFilesDir = (Join-Path (Join-Path $RepoRoot '[REFERENCE FILES]') 'Base Game Files')
 )
 
 Set-StrictMode -Version Latest
@@ -90,7 +94,7 @@ function Get-ThrusterDefinitionsFromFile {
 
 # Infer default Components.sbc path if not provided
 if (-not $ComponentsFilePath) {
-    $componentsCandidate = Join-Path (Join-Path (Join-Path $PSScriptRoot '[REFERENCE FILES]') 'Base Game Files') 'Components.sbc'
+    $componentsCandidate = Join-Path $BaseFilesDir 'Components.sbc'
     $ComponentsFilePath = $componentsCandidate
 }
 
@@ -101,10 +105,38 @@ if (-not (Test-Path $ModCubeBlocksPath)) {
     throw "Mod cube blocks path not found: $ModCubeBlocksPath"
 }
 
-$thrusterFiles = Get-ChildItem -Path $ModCubeBlocksPath -Filter *.sbc -File -ErrorAction Stop
+if (-not (Test-Path -LiteralPath $ModCubeBlocksPath)) { throw "Mod cube blocks path not found: $ModCubeBlocksPath" }
+
+$thrusterFiles = Get-ChildItem -LiteralPath $ModCubeBlocksPath -Filter *.sbc -File -ErrorAction Stop
 $thrusters = @()
-foreach ($f in $thrusterFiles) {
-    $thrusters += Get-ThrusterDefinitionsFromFile -FilePath $f.FullName
+foreach ($f in $thrusterFiles) { $thrusters += Get-ThrusterDefinitionsFromFile -FilePath $f.FullName | ForEach-Object { $_ | Add-Member -NotePropertyName Origin -NotePropertyValue 'Mod' -PassThru } }
+
+# Optionally include base standard (ion/hydrogen/atmo) thrusters
+if ($IncludeBase) {
+    $baseStandardFile = Join-Path $BaseFilesDir 'CubeBlocks_Thrusters.sbc'
+    if (Test-Path -LiteralPath $baseStandardFile) {
+        $baseStandardThrusters = Get-ThrusterDefinitionsFromFile -FilePath $baseStandardFile | ForEach-Object { $_ | Add-Member -NotePropertyName Origin -NotePropertyValue 'Base' -PassThru }
+        # Add regardless of duplicate subtype so we can compare base vs mod override
+        $thrusters += $baseStandardThrusters
+    } else {
+        Write-Warning "Base thruster file not found: $baseStandardFile"
+    }
+}
+
+# Optionally include Prototech (or future base) thrusters for comparison
+if ($IncludePrototech) {
+    $protoFile = Join-Path $BaseFilesDir 'CubeBlocks_Prototech.sbc'
+    if (Test-Path -LiteralPath $protoFile) {
+        $protoThrusters = Get-ThrusterDefinitionsFromFile -FilePath $protoFile | ForEach-Object { $_ | Add-Member -NotePropertyName Origin -NotePropertyValue 'BasePrototech' -PassThru }
+        # De-duplicate: if mod overrides subtype, keep mod version
+        $existingKeys = $thrusters | ForEach-Object { "$($_.SubtypeId)|$($_.CubeSize)" } | Sort-Object -Unique
+        foreach ($pt in $protoThrusters) {
+            $key = "$($pt.SubtypeId)|$($pt.CubeSize)"
+            if ($existingKeys -notcontains $key) { $thrusters += $pt }
+        }
+    } else {
+        Write-Warning "Prototech file not found at $protoFile; skipping"
+    }
 }
 
 if (-not $thrusters) {
@@ -142,6 +174,7 @@ foreach ($t in $thrusters) {
         N_per_kg               = if ($nPerKg) { [math]::Round($nPerKg,2) } else { $null }
         kN_per_MW              = if ($kNperMW) { [math]::Round($kNperMW,2) } else { $null }
         ComponentsBreakdown    = ($componentsBreakdown -join ';')
+        Origin                 = if ($t.PSObject.Properties.Name -contains 'Origin') { $t.Origin } else { 'Mod' }
         SourceFile             = $t.FilePath
     }
 }

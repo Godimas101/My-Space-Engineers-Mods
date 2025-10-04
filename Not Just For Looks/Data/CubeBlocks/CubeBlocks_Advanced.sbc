@@ -59,7 +59,8 @@
 			<BuildTimeSeconds>10</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>57600</ForceMagnitude> <!-- 4x from 14400 -->
+			<!-- Original ForceMagnitude 57600 (4x from 14400) -->
+			<ForceMagnitude>104251</ForceMagnitude> <!-- Recalc: 2x base N/kg target (Upgraded ratio 238.016529) -->
 			<MaxPowerConsumption>0.200</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -159,7 +160,8 @@
 			<BuildTimeSeconds>20</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>691200</ForceMagnitude> <!-- 4x from 172800 -->
+			<!-- Original ForceMagnitude 691200 (4x from 172800) -->
+			<ForceMagnitude>1630695</ForceMagnitude> <!-- Recalc: 3x base N/kg target (Advanced ratio 719.001387) -->
 			<MaxPowerConsumption>2.4</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -257,7 +259,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>40</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>1382400</ForceMagnitude> <!-- 4x from 345600 -->
+			<!-- Original ForceMagnitude 1382400 (4x from 345600) -->
+			<ForceMagnitude>3063058</ForceMagnitude> <!-- Recalc: 3x base N/kg target (Advanced ratio 236.71232877) -->
 			<MaxPowerConsumption>3.36</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -357,7 +360,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>90</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>17280000</ForceMagnitude> <!-- 4x from 4320000 -->
+			<!-- Original ForceMagnitude 17280000 (4x from 4320000) -->
+			<ForceMagnitude>38925000</ForceMagnitude> <!-- Recalc: 3x base N/kg target (Advanced ratio 300) -->
 			<MaxPowerConsumption>33.6</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -459,7 +463,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>50</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>25920000</ForceMagnitude> <!-- 4x standard atmo thruster from 6480000 -->
+			<!-- Original ForceMagnitude 25920000 (4x std atmo 6480000) -->
+			<ForceMagnitude>30150615</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 639.8687448) -->
 			<MaxPowerConsumption>6.7</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -573,7 +578,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>50</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>25920000</ForceMagnitude> <!-- 4x standard atmo thruster from 6480000 -->
+			<!-- Original ForceMagnitude 25920000 (4x std atmo 6480000) -->
+			<ForceMagnitude>30150615</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 639.8687448) -->
 			<MaxPowerConsumption>6.7</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -687,7 +693,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>25</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>25921000</ForceMagnitude> <!-- 4x standard atmo thruster from 648000 -->
+			<!-- Original ForceMagnitude 25921000 (4x std atmo 648000) -->
+			<ForceMagnitude>1870699</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 471.3275727) -->
 			<MaxPowerConsumption>0.8</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -801,7 +808,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>25</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>2592000</ForceMagnitude> <!-- Tr4xipple standard atmo thruster from 648000 -->
+			<!-- Original ForceMagnitude 2592000 (4x std atmo 648000) -->
+			<ForceMagnitude>1983818</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 471.3275727) -->
 			<MaxPowerConsumption>0.8</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -914,7 +922,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>15</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>2304000</ForceMagnitude> <!-- 4x standard atmo thruster from 576000 -->
+			<!-- Original ForceMagnitude 2304000 (4x std atmo 576000) -->
+			<ForceMagnitude>2118821</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 650.9433963) -->
 			<MaxPowerConsumption>1</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1028,7 +1037,8 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>15</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>2304000</ForceMagnitude> <!-- 4x standard atmo thruster from 576000 -->
+			<!-- Original ForceMagnitude 2304000 (4x std atmo 576000) -->
+			<ForceMagnitude>2170896</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 650.9433963) -->
 			<MaxPowerConsumption>1</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1142,7 +1152,8 @@
 			<BuildTimeSeconds>8</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>384000</ForceMagnitude> <!-- 4x standard atmo thruster from 96000 -->
+			<!-- Original ForceMagnitude 384000 (4x std atmo 96000) -->
+			<ForceMagnitude>311762</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 316.8316833) -->
 			<MaxPowerConsumption>0.200</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
@@ -1257,7 +1268,8 @@
 			<BuildTimeSeconds>8</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>384000</ForceMagnitude> <!-- 4x standard atmo thruster from 96000 -->
+			<!-- Original ForceMagnitude 384000 (4x std atmo 96000) -->
+			<ForceMagnitude>311762</ForceMagnitude> <!-- Recalc: 3x base N/kg target (ratio 316.8316833) -->
 			<MaxPowerConsumption>0.200</MaxPowerConsumption>
 			<MinPowerConsumption>0.000002</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>

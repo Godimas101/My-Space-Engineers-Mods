@@ -24,11 +24,22 @@ Usage:
 #>
 
 param(
-  [string] $BaseFilesDir = (Join-Path (Join-Path $PSScriptRoot '[REFERENCE FILES]') 'Base Game Files'),
-  [string] $ModCubeBlocksDir = (Join-Path (Join-Path $PSScriptRoot 'Not Just For Looks') 'Data\\CubeBlocks'),
+  # Root of the repository (scripts folder parent)
+  [string] $RepoRoot = (Split-Path $PSScriptRoot -Parent),
+  # Base game files directory
+  [string] $BaseFilesDir = $(Join-Path (Join-Path ((Split-Path $PSScriptRoot -Parent)) '[REFERENCE FILES]') 'Base Game Files'),
+  # Mod CubeBlocks directory
+  [string] $ModCubeBlocksDir = $(Join-Path (Join-Path ((Split-Path $PSScriptRoot -Parent)) 'Not Just For Looks') 'Data\CubeBlocks'),
+  # Explicit components file path (optional)
   [string] $ComponentsFile,
-  [string] $OutCsv = (Join-Path $PSScriptRoot 'thruster_comparison_report.csv'),
-  [string[]] $IncludeBaseThrusterTypes = @('Prototech')
+  # Output CSV (default at repo root so user sees alongside other reports)
+  [string] $OutCsv = (Join-Path ((Split-Path $PSScriptRoot -Parent)) 'thruster_comparison_report.csv'),
+  # Which standalone base thruster families (by ThrusterType) to include even if no tiers exist
+  [string[]] $IncludeBaseThrusterTypes = @('Prototech'),
+  # Multiplier thresholds for anomaly detection
+  [double] $AnomalyForceThreshold = 5.0,
+  [double] $AnomalyEfficiencyThreshold = 3.0,
+  [double] $AnomalyNPerKgThreshold = 3.0
 )
 
 Set-StrictMode -Version Latest
@@ -130,6 +141,7 @@ if (-not (Test-Path -LiteralPath $BaseFilesDir)) { throw "Base files dir not fou
 if (-not (Test-Path -LiteralPath $ModCubeBlocksDir)) { throw "Mod cube blocks dir not found: $ModCubeBlocksDir" }
 
 Write-Host "Scanning base thrusters..." -ForegroundColor Cyan
+if (-not (Test-Path -LiteralPath $BaseFilesDir)) { throw "Base files dir not found (after relocation fix attempt): $BaseFilesDir" }
 $baseThrusterFiles = Get-ChildItem -LiteralPath $BaseFilesDir -Filter 'CubeBlocks_*.sbc' -File
 $baseThrusters = foreach ($bf in $baseThrusterFiles) { Get-ThrustersFromFile -FilePath $bf.FullName }
 $baseMetrics = @{}
@@ -140,6 +152,7 @@ foreach ($t in $baseThrusters) {
 }
 
 Write-Host "Scanning mod thrusters..." -ForegroundColor Cyan
+if (-not (Test-Path -LiteralPath $ModCubeBlocksDir)) { throw "Mod cube blocks dir not found (after relocation fix attempt): $ModCubeBlocksDir" }
 $modThrusterFiles = Get-ChildItem -LiteralPath $ModCubeBlocksDir -Filter '*.sbc' -File
 $modThrusters = foreach ($mf in $modThrusterFiles) { Get-ThrustersFromFile -FilePath $mf.FullName }
 
@@ -177,6 +190,16 @@ foreach ($key in ($tiered.Keys | Sort-Object)) {
     Upgraded_kN_per_MW = if ($up){$up.kN_per_MW}else{$null}
     Advanced_kN_per_MW = if ($adv){$adv.kN_per_MW}else{$null}
     BaseOnly = $false
+    # Pre-create multiplier & anomaly columns so they appear in header regardless of first-row tier composition
+    Upgraded_Force_x = $null
+    Upgraded_Mass_x = $null
+    Upgraded_N_per_kg_x = $null
+    Upgraded_kN_per_MW_x = $null
+    Advanced_Force_x = $null
+    Advanced_Mass_x = $null
+    Advanced_N_per_kg_x = $null
+    Advanced_kN_per_MW_x = $null
+    AnomalyFlag = $false
   }
   # Multipliers
   if ($base -and $up) {
@@ -191,6 +214,15 @@ foreach ($key in ($tiered.Keys | Sort-Object)) {
     $row.Advanced_N_per_kg_x = if ($base.N_per_kg) { [math]::Round($adv.N_per_kg / $base.N_per_kg,2) } else { $null }
     $row.Advanced_kN_per_MW_x = if ($base.kN_per_MW) { [math]::Round($adv.kN_per_MW / $base.kN_per_MW,2) } else { $null }
   }
+  # Anomaly detection (after multipliers computed)
+  $isAnomaly = $false
+  if ($row.Upgraded_Force_x -and $row.Upgraded_Force_x -gt $AnomalyForceThreshold) { $isAnomaly = $true }
+  if ($row.Advanced_Force_x -and $row.Advanced_Force_x -gt $AnomalyForceThreshold) { $isAnomaly = $true }
+  if ($row.Upgraded_kN_per_MW_x -and $row.Upgraded_kN_per_MW_x -gt $AnomalyEfficiencyThreshold) { $isAnomaly = $true }
+  if ($row.Advanced_kN_per_MW_x -and $row.Advanced_kN_per_MW_x -gt $AnomalyEfficiencyThreshold) { $isAnomaly = $true }
+  if ($row.Upgraded_N_per_kg_x -and $row.Upgraded_N_per_kg_x -gt $AnomalyNPerKgThreshold) { $isAnomaly = $true }
+  if ($row.Advanced_N_per_kg_x -and $row.Advanced_N_per_kg_x -gt $AnomalyNPerKgThreshold) { $isAnomaly = $true }
+  $row.AnomalyFlag = $isAnomaly
   $rows += [pscustomobject]$row
 }
 
@@ -229,6 +261,15 @@ foreach ($kv in $baseMetrics.GetEnumerator()) {
       Upgraded_kN_per_MW = $null
       Advanced_kN_per_MW = $null
       BaseOnly = $true
+      Upgraded_Force_x = $null
+      Upgraded_Mass_x = $null
+      Upgraded_N_per_kg_x = $null
+      Upgraded_kN_per_MW_x = $null
+      Advanced_Force_x = $null
+      Advanced_Mass_x = $null
+      Advanced_N_per_kg_x = $null
+      Advanced_kN_per_MW_x = $null
+      AnomalyFlag = $false
     }
     $rows += [pscustomobject]$row
   }
