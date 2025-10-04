@@ -1,6 +1,10 @@
 ## Local reference data (literal brackets escaped)
 \[REFERENCE FILES]/
 
+# Allow documentation README within reference sheets (typo and corrected folder names)
+!\[REFERENCE FILES]/Refernece Sheets/README.md
+!\[REFERENCE FILES]/Reference Sheets/README.md
+
 ## Space Engineers mod metadata (never commit)
 modinfo.sbmi
 
