@@ -1,5 +1,8 @@
 param(
-  [string] $CsvPath = (Join-Path (Split-Path $PSScriptRoot -Parent) 'thruster_thrust_to__mass_ratios.csv'),
+  [string] $CsvPath = (foreach ($p in @(
+      (Join-Path (Join-Path (Split-Path $PSScriptRoot -Parent) '[REFERENCE FILES]') 'Reference Sheets\thruster_thrust_to__mass_ratios.csv'),
+      (Join-Path (Join-Path (Split-Path $PSScriptRoot -Parent) '[REFERENCE FILES]') 'Refernece Sheets\thruster_thrust_to__mass_ratios.csv'),
+      (Join-Path (Split-Path $PSScriptRoot -Parent) 'thruster_thrust_to__mass_ratios.csv'))) { if (Test-Path -LiteralPath $p) { $p; break } }),
   [double] $UpgradedMultiplier = 2.0,
   [double] $AdvancedMultiplier = 3.0,
   [switch] $DryRun,

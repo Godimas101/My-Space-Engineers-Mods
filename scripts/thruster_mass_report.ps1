@@ -22,7 +22,12 @@ Usage:
 param(
     [string] $RepoRoot = (Split-Path $PSScriptRoot -Parent),
     [string] $ModCubeBlocksPath = (Join-Path (Join-Path $RepoRoot 'Not Just For Looks') 'Data\CubeBlocks'),
-    [string] $OutputCsv = (Join-Path $RepoRoot 'thruster_mass_report.csv'),
+    # Prefer new "Reference Sheets" directory inside [REFERENCE FILES]; fall back to historical misspelling or repo root.
+    [string] $ReferenceSheetsDir = (foreach ($p in @(
+        (Join-Path (Join-Path $RepoRoot '[REFERENCE FILES]') 'Reference Sheets'),
+        (Join-Path (Join-Path $RepoRoot '[REFERENCE FILES]') 'Refernece Sheets'),
+        $RepoRoot)) { if (Test-Path -LiteralPath $p) { $p; break } }),
+    [string] $OutputCsv = (Join-Path $ReferenceSheetsDir 'thruster_mass_report.csv'),
     [string] $ComponentsFilePath,
     [switch] $IncludePrototech,
     [switch] $IncludeBase,
