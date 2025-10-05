@@ -372,56 +372,6 @@ namespace SG.LCDInfo
             }
         }
 
-        public static void DrawFarmingSummarySprite(ref MySpriteDrawFrame frame, ref Vector2 position, SurfaceData surfaceData,
-            int totalPlots, int workingPlots, int empty, int growing, int ready, int algaeCount, bool showAlgae)
-        {
-            try
-            {
-                if (totalPlots <= 0)
-                {
-                    WriteTextSprite(ref frame, position, surfaceData, "No Farm Plots found.", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                    position += surfaceData.newLine;
-                    return;
-                }
-
-                // Header line with total and working
-                WriteTextSprite(ref frame, position, surfaceData, "Farm Plots", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                WriteTextSprite(ref frame, position, surfaceData, $"{workingPlots}", TextAlignment.RIGHT, surfaceData.useColors ? Color.GreenYellow : surfaceData.surface.ScriptForegroundColor);
-                WriteTextSprite(ref frame, position, surfaceData, "Active:              /      ", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
-                WriteTextSprite(ref frame, position, surfaceData, $"                      {totalPlots}", TextAlignment.RIGHT, surfaceData.surface.ScriptForegroundColor);
-                position += surfaceData.newLine;
-
-                // Empty
-                WriteTextSprite(ref frame, position, surfaceData, "Empty Plots", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                WriteTextSprite(ref frame, position, surfaceData, $"{empty}", TextAlignment.RIGHT, surfaceData.useColors ? Color.Orange : surfaceData.surface.ScriptForegroundColor);
-                position += surfaceData.newLine;
-
-                // Growing
-                WriteTextSprite(ref frame, position, surfaceData, "Growing Plots", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                WriteTextSprite(ref frame, position, surfaceData, $"{growing}", TextAlignment.RIGHT, surfaceData.useColors ? Color.Yellow : surfaceData.surface.ScriptForegroundColor);
-                position += surfaceData.newLine;
-
-                // Ready
-                WriteTextSprite(ref frame, position, surfaceData, "Ready Plots", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                WriteTextSprite(ref frame, position, surfaceData, $"{ready}", TextAlignment.RIGHT, surfaceData.useColors ? Color.GreenYellow : surfaceData.surface.ScriptForegroundColor);
-                position += surfaceData.newLine;
-
-                if (showAlgae && algaeCount > 0)
-                {
-                    WriteTextSprite(ref frame, position, surfaceData, "Algae Farms", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                    WriteTextSprite(ref frame, position, surfaceData, $"{algaeCount}", TextAlignment.RIGHT, surfaceData.useColors ? Color.Aqua : surfaceData.surface.ScriptForegroundColor);
-                    position += surfaceData.newLine;
-                }
-
-                WriteTextSprite(ref frame, position, surfaceData, "Irrigation Coverage: N/A", TextAlignment.LEFT, surfaceData.surface.ScriptForegroundColor);
-                position += surfaceData.newLine;
-            }
-            catch (Exception e)
-            {
-                MyLog.Default.WriteLine($"SG.LCDInfo.SurfaceDrawer: Caught Exception while drawing farming sprite: {e}");
-            }
-        }
-
         public static void DrawOxygenFarmSummarySprite(ref MySpriteDrawFrame frame, ref Vector2 position, SurfaceData surfaceData, List<IMyOxygenFarm> oxygenFarms)
         {
             if (oxygenFarms.Count <= 0) return;

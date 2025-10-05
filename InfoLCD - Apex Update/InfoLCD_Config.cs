@@ -31,7 +31,7 @@ namespace SG.LCDInfo
         // If you don't want to have a minAmount (will hide the status bar on LCD screen) just set minAmount = 0
         public static List<CargoItemDefinition> cargoItemDefinitions = new List<CargoItemDefinition>
         {
-            //Ore Items (alphabetical by displayName)
+            //Ore items
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Cobalt",                               displayName = "Cobalt",                 volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Gold",                                 displayName = "Gold",                   volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Ice",                                  displayName = "Ice",                    volume = 0.37f,     minAmount = 20000   },
@@ -39,33 +39,28 @@ namespace SG.LCDInfo
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Magnesium",                            displayName = "Magnesium",              volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Nickel",                               displayName = "Nickel",                 volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Platinum",                             displayName = "Platinum",               volume = 0.37f,     minAmount = 10000   },
-            new CargoItemDefinition { typeId = "Ore",           subtypeId = "Scrap",                                displayName = "Scrap",                  volume = 0.254f,    minAmount = 0    },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Silicon",                              displayName = "Silicon",                volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Silver",                               displayName = "Silver",                 volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Stone",                                displayName = "Stone",                  volume = 0.37f,     minAmount = 10000   },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Uranium",                              displayName = "Uranium",                volume = 0.37f,     minAmount = 10000   },
-/*
-            //Modded Ore Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "Ore",           subtypeId = "HydroPallets",                         displayName = "Hydro Pallets",          volume = 0.37f,     minAmount = 100     },
             new CargoItemDefinition { typeId = "Ore",           subtypeId = "Organic",                              displayName = "Organic",                volume = 0.37f,     minAmount = 100     },
-*/
-            //Ingot items (alphabetical by displayName)
+            new CargoItemDefinition { typeId = "Ore",           subtypeId = "HydroPallets",                         displayName = "Hydro Pallets",          volume = 0.37f,     minAmount = 100     },
+
+            //Ingot items
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Cobalt",                                displayName = "Cobalt",                 volume = 0.112f,    minAmount =  25000  },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Gold",                                  displayName = "Gold",                   volume = 0.052f,    minAmount =   5000  },
-            new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Stone",                                 displayName = "Gravel",                 volume = 0.37f,     minAmount = 500    },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Iron",                                  displayName = "Iron",                   volume = 0.127f,    minAmount = 100000  },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Magnesium",                             displayName = "Magnesium Pow.",         volume = 0.575f,    minAmount = 15000   },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Nickel",                                displayName = "Nickel",                 volume = 0.112f,    minAmount = 25000   },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Platinum",                              displayName = "Platinum",               volume = 0.047f,    minAmount = 2000    },
-            new CargoItemDefinition { typeId = "Ingot",        subtypeId = "PrototechScrap",                        displayName = "Prototech Scrap",        volume = 1.5f,      minAmount = 20       },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Silicon",                               displayName = "Silicon Waf.",           volume = 0.429f,    minAmount = 15000   },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Silver",                                displayName = "Silver",                 volume = 0.095f,    minAmount = 5000    },
+            new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Stone",                                 displayName = "Gravel",                 volume = 0.37f,     minAmount = 5000    },
             new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Uranium",                               displayName = "Uranium",                volume = 0.052f,    minAmount = 2000    },
+            new CargoItemDefinition { typeId = "Ingot",        subtypeId = "Scrap",                                 displayName = "Scrap",                  volume = 0.127f,    minAmount = 0    },
+            new CargoItemDefinition { typeId = "Ingot",        subtypeId = "PrototechScrap",                        displayName = "Prototech Scrap",        volume = 0.127f,    minAmount = 20       },
 
-            //Modded Ingot Items
-            //None!
-
-            //Component items (alphabetical by displayName)
+            //Component items
             new CargoItemDefinition { typeId = "Component",    subtypeId = "BulletproofGlass",                      displayName = "Bulletproof Glass",      volume = 8.0f,      minAmount = 12000   },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "Canvas",                                displayName = "Canvas",                 volume = 8.0f,      minAmount = 300     },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "Computer",                              displayName = "Computer",               volume = 1.0f,      minAmount = 6500    },
@@ -85,173 +80,139 @@ namespace SG.LCDInfo
             new CargoItemDefinition { typeId = "Component",    subtypeId = "RadioCommunication",                    displayName = "Radio Comms.",           volume = 70.0f,     minAmount = 250     },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "Reactor",                               displayName = "Reactor Compnts",        volume = 8.0f,      minAmount = 10000   },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "SabiroidPlushie",                       displayName = "Sabiroid Plushie",       volume = 3.0f,      minAmount = 1       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "SmallTube",                             displayName = "Small Steel Tubes",      volume = 2.0f,      minAmount = 26000   },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "SolarCell",                             displayName = "Solar Cells",            volume = 12.0f,     minAmount = 2800    },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "SmallTube",                             displayName = "Small Steel Tubes",      volume = 2.0f,      minAmount = 26000   },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "SteelPlate",                            displayName = "Steelplates",            volume = 3.0f,      minAmount = 300000  },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "Superconductor",                        displayName = "Super Conductors",       volume = 8.0f,      minAmount = 3000    },
             new CargoItemDefinition { typeId = "Component",    subtypeId = "Thrust",                                displayName = "Thruster Compnts",       volume = 10.0f,     minAmount = 16000   },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "ZoneChip",                              displayName = "Zone Chips",             volume = 0.2f,      minAmount = 100     },
 
-            // Prototech component items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechCapacitor",                    displayName = "Prototech Capacitor",    volume = 50.0f,     minAmount = 20       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechCircuitry",                    displayName = "Prototech Circuitry",    volume = 20.0f,     minAmount = 20       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechCoolingUnit",                  displayName = "Prototech Cooling Unit",  volume = 80.0f,     minAmount = 20       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechFrame",                        displayName = "Prototech Frame",        volume = 50.0f,     minAmount = 20       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechMachinery",                    displayName = "Prototech Machinery",    volume = 35.0f,     minAmount = 20       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechPanel",                        displayName = "Prototech Panel",        volume = 6.0f,      minAmount = 20       },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechPropulsionUnit",               displayName = "Prototech Propulsion",   volume = 160.0f,    minAmount = 20       },
-/*
-            //Modded Component Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "AQD_Comp_Concrete",                     displayName = "Concrete",              volume = 0.37f,     minAmount = 10000   },
-            new CargoItemDefinition { typeId = "Component",    subtypeId = "EmptyTinCan",                           displayName = "Empty Tin Can",         volume = 0.5f,      minAmount =   0     },
-*/
-            //Ammo items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "LargeCalibreAmmo",                      displayName = "Artillery Shell",        volume = 100.0f,    minAmount = 250     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "MediumCalibreAmmo",                     displayName = "Assault Cannon Shell",   volume = 30.0f,     minAmount = 500    },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "AutocannonClip",                        displayName = "Autocannon Mag",         volume = 24.0f,     minAmount = 500     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "FlareClip",                             displayName = "Flare Gun Clip",         volume = 0.05f,     minAmount = 50      },
+            // Prototech components (rare / prototech)
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechPanel",                       displayName = "Prototech Panel",        volume = 12.0f,     minAmount = 20       },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechFrame",                       displayName = "Prototech Frame",        volume = 12.0f,     minAmount = 20       },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechCapacitor",                   displayName = "Prototech Capacitor",    volume = 8.0f,      minAmount = 20       },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechPropulsionUnit",              displayName = "Prototech Propulsion",   volume = 20.0f,     minAmount = 20       },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechMachinery",                   displayName = "Prototech Machinery",    volume = 20.0f,     minAmount = 20       },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechCircuitry",                   displayName = "Prototech Circuitry",    volume = 6.0f,      minAmount = 20       },
+            new CargoItemDefinition { typeId = "Component",    subtypeId = "PrototechCoolingUnit",                 displayName = "Prototech Cooling Unit",  volume = 10.0f,    minAmount = 20       },
+
+            //Ammo items
             new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "NATO_25x184mm",                         displayName = "Gatling Ammo Box",       volume = 16.0f,     minAmount = 500     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "LargeRailgunAmmo",                      displayName = "Large Railgun Sabot",    volume = 40.0f,     minAmount = 250     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "Missile200mm",                          displayName = "Rocket",                 volume = 60.0f,     minAmount = 500     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "SmallRailgunAmmo",                      displayName = "Small Railgun Sabot",    volume = 8.0f,      minAmount = 250     },
-/*
-            //Modded Ammo Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "ElindisGaussAmmo",                      displayName = "Coilgun Box",            volume = 30.0f,     minAmount = 500     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "HailstormMissile",                      displayName = "Hailstorm Rocket",       volume = 38.0f,     minAmount = 250     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "PaintGunMag",                           displayName = "Paint Chemicals",        volume = 0.002f,    minAmount = 5000    },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "ElindisTorpedo",                        displayName = "Torpedo",                volume = 120.0f,    minAmount =  50     },
-*/
-            //Hand weapon ammo items (alphabetical by displayName)
             new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "NATO_5p56x45mm",                        displayName = "5.56x45mm Mag",          volume = 0.2f,      minAmount = 100     },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "AutomaticRifleGun_Mag_20rd",            displayName = "MR-20 Rifle Mag",        volume = 0.2f,      minAmount = 100    },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "UltimateAutomaticRifleGun_Mag_30rd",    displayName = "MR-30E Rifle Mag",       volume = 0.3f,      minAmount = 100    },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "RapidFireAutomaticRifleGun_Mag_50rd",   displayName = "MR-50A Rifle Mag",       volume = 0.5f,      minAmount = 100    },
-            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "PreciseAutomaticRifleGun_Mag_5rd",      displayName = "MR-8P Rifle Mag",        volume = 0.15f,     minAmount = 100    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "Missile200mm",                          displayName = "Rocket",                 volume = 60.0f,     minAmount = 500     },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "AutocannonClip",                        displayName = "Autocannon Mag",         volume = 24.0f,     minAmount = 500     },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "FlareClip",                             displayName = "Flare Gun Clip",         volume = 0.05f,     minAmount = 100      },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "LargeCalibreAmmo",                      displayName = "Artillery Shell",        volume = 100.0f,    minAmount = 250     },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "LargeRailgunAmmo",                      displayName = "Large Railgun Sabot",    volume = 40.0f,     minAmount = 250     },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "MediumCalibreAmmo",                     displayName = "Assault Cannon Shell",   volume = 30.0f,     minAmount = 500    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "SmallRailgunAmmo",                      displayName = "Small Railgun Sabot",    volume = 8.0f,      minAmount = 250     },
             new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "SemiAutoPistolMagazine",                displayName = "S-10 Pistol Mag",        volume = 0.1f,      minAmount = 100    },
             new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "ElitePistolMagazine",                   displayName = "S-10E Pistol Mag",       volume = 0.1f,      minAmount = 100    },
             new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "FullAutoPistolMagazine",                displayName = "S-20A Pistol Mag",       volume = 0.15f,     minAmount = 100    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "AutomaticRifleGun_Mag_20rd",            displayName = "MR-20 Rifle Mag",        volume = 0.2f,      minAmount = 100    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "PreciseAutomaticRifleGun_Mag_5rd",      displayName = "MR-8P Rifle Mag",        volume = 0.15f,     minAmount = 100    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "RapidFireAutomaticRifleGun_Mag_50rd",   displayName = "MR-50A Rifle Mag",       volume = 0.5f,      minAmount = 100    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "UltimateAutomaticRifleGun_Mag_30rd",    displayName = "MR-30E Rifle Mag",       volume = 0.3f,      minAmount = 100    },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "ElindisTorpedo",                        displayName = "Torpedo",                volume = 120.0f,    minAmount =  50     },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "ElindisGaussAmmo",                      displayName = "Coilgun Box",            volume = 30.0f,     minAmount = 500     },
+            new CargoItemDefinition { typeId = "AmmoMagazine", subtypeId = "HailstormMissile",                      displayName = "Hailstorm Rocket",       volume = 38.0f,     minAmount = 250     },
 
-            //Tools Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AngleGrinder4Item",                displayName = "Elite Grinder",          volume = 20.0f,     minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "HandDrill4Item",                   displayName = "Elite Hand Drill",       volume = 25.0f,     minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "Welder4Item",                      displayName = "Elite Welder",           volume = 8.0f,      minAmount =  10     },
+            //Tools and kits
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AngleGrinderItem",                 displayName = "Grinder",                volume = 20.0f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "HandDrillItem",                    displayName = "Hand Drill",             volume = 25.0f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "WelderItem",                       displayName = "Welder",                 volume = 8.0f,      minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AngleGrinder2Item",                displayName = "Enhanced Grinder",       volume = 20.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "HandDrill2Item",                   displayName = "Enhanced Hand Drill",    volume = 25.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "Welder2Item",                      displayName = "Enhanced Welder",        volume = 8.0f,      minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "FlareGunItem",                     displayName = "Flare Gun",              volume = 6.0f,      minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AngleGrinderItem",                 displayName = "Grinder",                volume = 20.0f,     minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "HandDrillItem",                    displayName = "Hand Drill",             volume = 25.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AngleGrinder3Item",                displayName = "Proficient Grinder",     volume = 20.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "HandDrill3Item",                   displayName = "Proficient Hand Drill",  volume = 25.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "Welder3Item",                      displayName = "Proficient Welder",      volume = 8.0f,      minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "WelderItem",                       displayName = "Welder",                 volume = 8.0f,      minAmount =  10     },
-
-/*
-            //Modded Tools Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "PhysicalPaintGun",                 displayName = "Paint Gun",              volume = 2.0f,      minAmount =  10     },
-*/
-
-            //Rifle Items (alphabetical by displayName)
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AngleGrinder4Item",                displayName = "Elite Grinder",          volume = 20.0f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "HandDrill4Item",                   displayName = "Elite Hand Drill",       volume = 25.0f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "Welder4Item",                      displayName = "Elite Welder",           volume = 8.0f,      minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AutomaticRifleItem",               displayName = "MR-20 Rifle",            volume = 20.0f,     minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "UltimateAutomaticRifleItem",       displayName = "MR-30E Rifle",           volume = 20.0f,     minAmount =  10     },
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "RapidFireAutomaticRifleItem",      displayName = "MR-50A Rifle",           volume = 20.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "PreciseAutomaticRifleItem",        displayName = "MR-8P Rifle",            volume = 20.0f,     minAmount =  10     },
-
-            //Pistol Items (alphabetical by displayName)
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "RapidFireAutomaticRifleItem",      displayName = "MR-50A Rifle",           volume = 20.0f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "UltimateAutomaticRifleItem",       displayName = "MR-30E Rifle",           volume = 20.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "SemiAutoPistolItem",               displayName = "S-10 Pistol",            volume =  6.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "ElitePistolItem",                  displayName = "S-10E Pistol",           volume =  6.0f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "FullAutoPistolItem",               displayName = "S-20A Pistol",           volume =  8.0f,     minAmount =  10     },
-
-            //Rocket Launcher Items
-            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "AdvancedHandHeldLauncherItem",     displayName = "Advanced Launcher",      volume = 125.0f,    minAmount =  10     },
             new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "BasicHandHeldLauncherItem",        displayName = "R-01 Rocket Launcher",   volume = 125.0f,    minAmount =  10     },
-
-            //Kit Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Medkit",                           displayName = "Medkits",                volume = 12.0f,     minAmount =  30     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Powerkit",                         displayName = "Powerkits",              volume = 9.0f,      minAmount =  30     },
-            new CargoItemDefinition { typeId = "ConsumableItem",   subtypeId = "RadiationKit",                      displayName = "Radiation Kit",          volume = 8.0f,      minAmount =   30     },
-
-            //Misc Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "Datapad",           subtypeId = "Datapad",                          displayName = "Datapads",               volume = 0.4f,      minAmount =   0     },
-            new CargoItemDefinition { typeId = "Package",           subtypeId = "Package",                          displayName = "Packages",               volume = 125.0f,    minAmount =   0     },
-            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "SpaceCredit",                      displayName = "Space Credits",          volume = 0.001f,    minAmount =   0     },
-            new CargoItemDefinition { typeId = "Component",         subtypeId = "ZoneChip",                         displayName = "Zone Chips",             volume = 0.2f,      minAmount = 100     },
-
-            //Bottle Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "GasContainerObject",    subtypeId = "HydrogenBottle",               displayName = "Hydrogen Bottle",        volume = 120.0f,    minAmount =  10     },
-            new CargoItemDefinition { typeId = "OxygenContainerObject", subtypeId = "OxygenBottle",                 displayName = "Oxygen Bottle",          volume = 120.0f,    minAmount =  10     },
-
-            // Raw Food items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "Algae",                            displayName = "Algae",                  volume = 5.0f,       minAmount =  50    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Fruit",                            displayName = "Fruit",                  volume = 3.0f,      minAmount =  50     },
-            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "Grain",                            displayName = "Grain",                  volume = 2.0f,       minAmount =  50     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Mushrooms",                        displayName = "Mushrooms",              volume = 8.0f,      minAmount =  50     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "InsectMeatRaw",                    displayName = "Raw Insect Meat",        volume = 2.0f,       minAmount =  10     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MammalMeatRaw",                    displayName = "Raw Mammal Meat",        volume = 1.15f,      minAmount =  10     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Vegetables",                       displayName = "Vegetables",             volume = 2.5f,      minAmount =  50     },
-/*
-            //Modded Raw food items
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Coffee",                           displayName = "Engineered Coffee",      volume = 3.0f,      minAmount =  20     },
-*/
-            // Cooked Food Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_BananaBeef",              displayName = "Banana Beef",            volume = 1.25f,     minAmount =   20    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Burrito",                 displayName = "Burrito",                volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Chili",                   displayName = "Chili",                  volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_ClangCrunchies",          displayName = "Clang Crunchies",        volume = 1.25f,     minAmount =   20    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "InsectMeatCooked",                 displayName = "Cooked Insect Meat",     volume = 1.4f,      minAmount =  50     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MammalMeatCooked",                 displayName = "Cooked Mammal Meat",     volume = 0.875f,    minAmount =  50     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Curry",                   displayName = "Curry",                  volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Dumplings",               displayName = "Dumplings",              volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_ExpiredSlop",             displayName = "Expired Slop",           volume = 1.25f,      minAmount =   0     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Flatbread",               displayName = "Flatbread",              volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FoodPaste",               displayName = "Food Paste",             volume = 1.25f,      minAmount =   20    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FrontierStew",            displayName = "Frontier Stew",          volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FruitBar",                displayName = "Fruit Bar",              volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FruitPastry",             displayName = "Fruit Pastry",           volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_GardenSlaw",              displayName = "Garden Slaw",            volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_GreenPellets",            displayName = "Green Pellets",          volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Hardtack",                displayName = "Hardtack",               volume = 1.25f,      minAmount =   20    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_InsectMedley",            displayName = "Insect Medley",          volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_KelpCrisp",               displayName = "Kelp Crisp",             volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Lasagna",                 displayName = "Lasagna",                volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_MammalMince",             displayName = "Mammal Mince Pack",      volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Ramen",                   displayName = "Ramen",                  volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_RedPellets",              displayName = "Red Pellets",            volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SabiroidSausage",         displayName = "Sabiroid Sausage Pack",  volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SearedSabiroid",          displayName = "Seared Sabiroid",        volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Spaghetti",               displayName = "Spaghetti",              volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SteakDinner",             displayName = "Steak Dinner",           volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SynthLoaf",               displayName = "Synth Loaf",            volume = 1.25f,      minAmount =   20    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Unknown",                 displayName = "Unknown MealPack",      volume = 1.25f,      minAmount =   0    },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_VeggieBurger",            displayName = "Veggie Burger",          volume = 1.25f,     minAmount =  20     },
-/*
-            //Modded Cooked Food Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "BioPaste",                         displayName = "Bio Paste",             volume = 0.5f,       minAmount =  50     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_CoffeeBrisket",           displayName = "Coffee Brisket",         volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_CoffeeCake",              displayName = "Coffee Cake",            volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "LaysChips",                        displayName = "Lays Chips",            volume = 1.0f,       minAmount =  20     },
-            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "Fake_Meat",                        displayName = "Meat Analogue",          volume = 1.25f,     minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "PrlnglesChips",                    displayName = "Prlngles Chips",        volume = 1.0f,       minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_RoastedCoffee",           displayName = "Roasted Coffee Pack",    volume = 1.25f,     minAmount =  20     },
-*/
-            //Drink Items (alphabetical by displayName)
+            new CargoItemDefinition { typeId = "PhysicalGunObject", subtypeId = "FlareGunItem",                     displayName = "Flare Gun",              volume = 0.37f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "SpaceCredit",                      displayName = "Space Credits",          volume = 0.37f,     minAmount =   0     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Medkit",                           displayName = "Medkits",                volume = 0.37f,     minAmount =  10     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Powerkit",                         displayName = "Powerkits",              volume = 0.37f,     minAmount =  10     },
             new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "ClangCola",                        displayName = "Clang Cola",             volume = 1.0f,      minAmount =   0     },
             new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "CosmicCoffee",                     displayName = "Cosmic Coffee",          volume = 1.0f,      minAmount =   0     },
-/*
-            //Modded Drink Items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "FruitTea",                         displayName = "Fruit Tea",             volume = 0.5f,       minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "InterBeer",                        displayName = "Inter Beer",            volume = 0.5f,       minAmount =  20     },
-            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MycoBoost",                        displayName = "Myco Boost",            volume = 0.5f,       minAmount =  20     },
+            new CargoItemDefinition { typeId = "Datapad",           subtypeId = "Datapad",                          displayName = "Datapads",               volume = 0.4f,      minAmount =   0     },
+            new CargoItemDefinition { typeId = "Package",           subtypeId = "Package",                          displayName = "Packages",               volume = 125.0f,    minAmount =   0     },
+
+            //Bottles
+            new CargoItemDefinition { typeId = "OxygenContainerObject", subtypeId = "OxygenBottle",                 displayName = "Oxygen Bottle",          volume = 120.0f,    minAmount =  10     },
+            new CargoItemDefinition { typeId = "GasContainerObject",    subtypeId = "HydrogenBottle",               displayName = "Hydrogen Bottle",        volume = 120.0f,    minAmount =  10     },
+
+            // Food items
+            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "Algae",                            displayName = "Algae",                 volume = 5.0f,       minAmount =  50    },
+            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "Grain",                            displayName = "Grain",                 volume = 2.0f,       minAmount =  50     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Fruit",                            displayName = "Fruit",                  volume = 1.0f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Vegetables",                       displayName = "Vegetables",             volume = 1.0f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Mushrooms",                        displayName = "Mushrooms",              volume = 1.0f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MammalMeatRaw",                    displayName = "Raw Mammal Meat",       volume = 1.15f,      minAmount =  10     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "InsectMeatRaw",                    displayName = "Raw Insect Meat",       volume = 2.0f,       minAmount =  10     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MammalMeatCooked",                 displayName = "Cooked Mammal Meat",     volume = 2.0f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "InsectMeatCooked",                 displayName = "Cooked Insect Meat",     volume = 2.0f,      minAmount =  50     },
+
+            // Additional consumables from APEX / mod
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "BioPaste",                         displayName = "Bio Paste",             volume = 0.5f,       minAmount =  50     },
             new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "SparklingWater",                   displayName = "Sparkling Water",       volume = 0.5f,       minAmount =  20     },
-*/
-            //Seed items (alphabetical by displayName)
-            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Fruit",                            displayName = "Fruit Seeds",            volume = 0.1f,      minAmount =  50     },
-            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Grain",                            displayName = "Grain Seeds",            volume = 0.1f,      minAmount =  50     },
-            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Vegetables",                       displayName = "Vegetable Seeds",        volume = 0.1f,      minAmount =  50     },
-            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Mushrooms",                        displayName = "Mushroom Spores",        volume = 0.1f,      minAmount =  50     },
-/*
-            //Modded seed items
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MycoBoost",                        displayName = "Myco Boost",            volume = 0.5f,       minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "FruitTea",                         displayName = "Fruit Tea",             volume = 0.5f,        minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "InterBeer",                        displayName = "Inter Beer",            volume = 0.5f,       minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "LaysChips",                        displayName = "Lays Chips",            volume = 1.0f,        minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "PrlnglesChips",                    displayName = "Prlngles Chips",        volume = 1.0f,        minAmount =  20     },
+
+            // Meal packs
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Unknown",                 displayName = "Unknown MealPack",      volume = 1.25f,     minAmount =   0    },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FoodPaste",               displayName = "Food Paste",            volume = 1.25f,     minAmount =   20    },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SynthLoaf",               displayName = "Synth Loaf",            volume = 1.25f,     minAmount =   20    },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_ClangCrunchies",          displayName = "Clang Crunchies",       volume = 1.25f,     minAmount =   20    },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_BananaBeef",              displayName = "Banana Beef",           volume = 1.25f,     minAmount =   20    },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Hardtack",                displayName = "Hardtack",              volume = 1.25f,     minAmount =   20    },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_ExpiredSlop",             displayName = "Expired Slop",          volume = 1.25f,     minAmount =   0     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_KelpCrisp",               displayName = "Kelp Crisp",             volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FruitBar",                displayName = "Fruit Bar",              volume = 1.5f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_GardenSlaw",              displayName = "Garden Slaw",            volume = 1.5f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_RedPellets",              displayName = "Red Pellets",            volume = 1.5f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Chili",                   displayName = "Chili",                  volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Flatbread",               displayName = "Flatbread",              volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Ramen",                   displayName = "Ramen",                  volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FruitPastry",             displayName = "Fruit Pastry",           volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_VeggieBurger",            displayName = "Veggie Burger",          volume = 2.5f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Curry",                   displayName = "Curry",                  volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_GreenPellets",            displayName = "Green Pellets",          volume = 1.5f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Dumplings",               displayName = "Dumplings",              volume = 2.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Spaghetti",               displayName = "Spaghetti",              volume = 3.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Lasagna",                 displayName = "Lasagna",                volume = 3.5f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_Burrito",                 displayName = "Burrito",                volume = 3.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_FrontierStew",            displayName = "Frontier Stew",          volume = 3.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SearedSabiroid",          displayName = "Seared Sabiroid",        volume = 3.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SteakDinner",             displayName = "Steak Dinner",           volume = 4.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_InsectMedley",            displayName = "Insect Medley",          volume = 3.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_MammalMince",             displayName = "Mammal Mince Pack",      volume = 1.25f,     minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_SabiroidSausage",         displayName = "Sabiroid Sausage Pack",  volume = 1.25f,     minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_RoastedCoffee",           displayName = "Roasted Coffee Pack",    volume = 1.25f,     minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_CoffeeCake",              displayName = "Coffee Cake",            volume = 1.25f,     minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "MealPack_CoffeeBrisket",           displayName = "Coffee Brisket",         volume = 1.25f,     minAmount =  20     },
+            new CargoItemDefinition { typeId = "ConsumableItem",    subtypeId = "Coffee",                           displayName = "Engineered Coffee",      volume = 3.0f,      minAmount =  20     },
+            new CargoItemDefinition { typeId = "PhysicalObject",    subtypeId = "Fake_Meat",                        displayName = "Meat Analogue",          volume = 1.25f,     minAmount =  20     },
+
+            // Seed items
+            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Fruit",                            displayName = "Fruit Seeds",            volume = 0.4f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Grain",                            displayName = "Grain Seeds",            volume = 0.4f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Vegetables",                       displayName = "Vegetable Seeds",        volume = 0.4f,      minAmount =  50     },
+            new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "Mushrooms",                        displayName = "Mushroom Spores",        volume = 0.4f,      minAmount =  50     },
             new CargoItemDefinition { typeId = "SeedItem",          subtypeId = "CoffeeBean",                       displayName = "Coffee Beans",           volume = 0.1f,      minAmount =  50     },
-*/
+
 
             
         };
