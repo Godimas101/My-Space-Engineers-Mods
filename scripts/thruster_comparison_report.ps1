@@ -32,8 +32,13 @@ param(
   [string] $ModCubeBlocksDir = $(Join-Path (Join-Path ((Split-Path $PSScriptRoot -Parent)) 'Not Just For Looks') 'Data\CubeBlocks'),
   # Explicit components file path (optional)
   [string] $ComponentsFile,
-  # Output CSV (default at repo root so user sees alongside other reports)
-  [string] $OutCsv = (Join-Path ((Split-Path $PSScriptRoot -Parent)) 'thruster_comparison_report.csv'),
+  # Reference sheets directory (new standard) with fallback to legacy misspelling then repo root.
+  [string] $ReferenceSheetsDir = (foreach ($p in @(
+      (Join-Path (Join-Path ((Split-Path $PSScriptRoot -Parent)) '[REFERENCE FILES]') 'Reference Sheets'),
+      (Join-Path (Join-Path ((Split-Path $PSScriptRoot -Parent)) '[REFERENCE FILES]') 'Refernece Sheets'),
+      $RepoRoot)) { if (Test-Path -LiteralPath $p) { $p; break } }),
+  # Output CSV now defaults inside reference sheets
+  [string] $OutCsv = (Join-Path $ReferenceSheetsDir 'thruster_comparison_report.csv'),
   # Which standalone base thruster families (by ThrusterType) to include even if no tiers exist
   [string[]] $IncludeBaseThrusterTypes = @('Prototech'),
   # Multiplier thresholds for anomaly detection
